@@ -8,4 +8,3 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
   end
 end
-
