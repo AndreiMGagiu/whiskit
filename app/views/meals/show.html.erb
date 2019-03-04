@@ -1,5 +1,8 @@
 <ul>
-<li><%= @meal.name %></li>
+<li>Selected meal: <%= @meal.name %></li>
 <li><%= @meal.description %></li>
 <li><%= @meal.price %></li>
 </ul>
+<%= link_to 'Edit', edit_meal_path(@meal)  %>
+<%= link_to 'Delete', meal_path(@meal), method: :delete, data: { confirm: 'Are you sure?' }  %>
+<%= link_to 'Go back', meals_path  %>

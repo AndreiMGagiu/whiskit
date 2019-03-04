@@ -11,5 +11,4 @@ class Meal < ApplicationRecord
   # validates :type_of, presence: true
   # validates :pick_up_start, presence: true
   # validates :pick_up_end, presence: true
-
 end
