@@ -10,10 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_125811) do
+ActiveRecord::Schema.define(version: 2019_03_04_140741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dietary_requirements", force: :cascade do |t|
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meal_dietary_requirements", force: :cascade do |t|
+    t.bigint "dietary_requirements_id"
+    t.bigint "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dietary_requirements_id"], name: "index_meal_dietary_requirements_on_dietary_requirements_id"
+    t.index ["meal_id"], name: "index_meal_dietary_requirements_on_meal_id"
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "portions"
+    t.integer "price"
+    t.string "type_of"
+    t.datetime "pick_up_start"
+    t.datetime "pick_up_end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_meals_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["meal_id"], name: "index_orders_on_meal_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +65,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_125811) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "meal_dietary_requirements", "dietary_requirements", column: "dietary_requirements_id"
+  add_foreign_key "meal_dietary_requirements", "meals"
+  add_foreign_key "orders", "meals"
 end
