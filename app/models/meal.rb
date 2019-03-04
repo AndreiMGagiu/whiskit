@@ -6,6 +6,7 @@ class Meal < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
+  
 #   validates :portions, presence: true
 #   validates :price, presence: true
 #   validates :type_of, presence: true
