@@ -1,0 +1,10 @@
+<%= simple_form_for @meal do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :portions %>
+  <%= f.input :type_of%>
+  <%= f.input :pick_up_start %>
+  <%= f.input :pick_up_end %>
+  <%= f.button :submit%>
+<% end %>
