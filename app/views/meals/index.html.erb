@@ -1,0 +1,13 @@
+<div class="cards">
+  <% @meals.each do |meal| %>
+    <%= link_to meal_path(meal) do %>
+      <div class="card-trip">
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= meal.name %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
