@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.new
     @meal = Meal.find(params[:meal_id])
     @order.meal = @meal
     @order.user = current_user
@@ -27,9 +27,18 @@ class OrdersController < ApplicationController
     end
   end
 
+  def destroy
+    @order = Order.find(params[:id])
+    # @meal = Meal.find(params[:meal_id])
+    @order.destroy
+    respond_to do |format|
+      format.html { redirect_to meal_path(@order.meal_id), notice: 'Your booking was successfully deleted'}
+    end
+  end
+
   private
 
-  def order_params
-    params.require(:order).permit(:time)
-  end
+  # def order_params
+  #   params.require(:order).permit(:time)
+  # end
 end
