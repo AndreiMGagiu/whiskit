@@ -1,9 +1,8 @@
 <div class="container">
   <div class="positioning">
     <div class="form-style">
-      <h1>Add an Order</h1>
+      <h3>Are you sure you want to add this meal?</h3>
       <%= simple_form_for [@meal, @order] do |f| %>
-        <%= f.input :time, as: :string, label: "Time",placeholder: '19:00pm' ,required: false, input_html: {class: "time"} %>
           <%= f.button :submit, class: "btn-primary" %>
         </div>
       <% end %>
