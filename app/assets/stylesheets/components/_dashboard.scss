@@ -1,6 +1,7 @@
 .key-information {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 20px;
 }
 
 .add-meal-button {
@@ -11,7 +12,7 @@
 .item {
   display: flex;
   flex-flow: column;
-align-items: center;
+  align-items: center;
   i {
     font-size: 35px;
     opacity: 0.3;
@@ -22,6 +23,75 @@ align-items: center;
   h3 {
     opacity: 0.5;
   }
+}
+
+.dashboard-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-content {
+  margin-left: 280px;
+}
+
+.active-meals {
+  padding-top: 20px;
+  padding-bottom: 20px;
+    i {
+      font-size: 200px;
+      padding-top: 0px;
+    }
+}
+
+.active-cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.remaing-portions {
+  padding-top: 0px;
+  padding-right: 100px;
+  padding-left: 130px;
+  text-align: center;
+    p {
+      font-size: 16px;
+    }
+
+    i {
+      font-size: 40px;
+      opacity: 0.5;
+    }
+}
+
+.meal-counter {
+  display: flex;
+  justify-content: space-around;
+  vertical-align: center;
+
+}
+
+.time-remaining {
+  padding-top: 0px;
+  padding-right: 100px;
+  padding-left: 130px;
+  text-align: center;
+    p {
+      font-size: 16px;
+    }
+
+    i {
+      font-size: 40px;
+      opacity: 0.5;
+    }
+}
+
+.time-left {
+  display: flex;
+  justify-content: space-around;
+  vertical-align: center;
+
 }
 
 
