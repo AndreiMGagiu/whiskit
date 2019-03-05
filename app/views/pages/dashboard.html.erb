@@ -7,8 +7,8 @@
 
     <div class="page-content">
 
-      <div class="add-meal-button">
-        <%= link_to '+add new meal', new_meal_path,class: 'btn btn-success'  %>
+      <div class="padding">
+        <%= link_to '+ add new meal', new_meal_path,class: 'btn btn-success add-meal-button'  %>
       </div>
 
       <div class="key-information">
@@ -34,37 +34,34 @@
         <hr>
       </div>
 
+      <h3>active meals</h3>
 
       <div class="active-meals">
-        <h3>active meals</h3>
 
         <div class="active-cards">
 
           <div>
-          <i class="fas fa-address-card"></i>
+              <%= render 'shared/meal_card', meal: @meal %>
           </div>
 
-          <div class="remaing-portions">
-            <p>remaining portions</p>
-            <div class="meal-counter">
-            <i class="fas fa-utensils"></i><h2>8</h2>
+
+            <div class="remaing-portions">
+              <p>remaining portions</p>
+                <div class="meal-counter">
+                  <i class="fas fa-utensils"></i><h2>8</h2>
+                </div>
             </div>
-          </div>
 
-          <div class="time-remaining">
-            <p>time remaining</p>
-            <div class="time-left">
-            <i class="far fa-clock" style="padding-right: 5px;"></i><h2> 2h</h2>
+            <div class="time-remaining">
+              <p>time remaining</p>
+                <div class="time-left">
+                  <i class="far fa-clock"></i><h2> 2h</h2>
+                </div>
             </div>
-          </div>
-
 
         </div>
 
       </div>
-
-
-
 
     </div>
 

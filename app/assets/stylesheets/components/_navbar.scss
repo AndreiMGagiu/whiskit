@@ -3,6 +3,10 @@
   background: white;
   padding-top: 15px;
   padding-bottom: 15px;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {
