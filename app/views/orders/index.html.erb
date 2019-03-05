@@ -1,0 +1,7 @@
+<h1>Your orders:</h1>
+<ul>
+<% @user.orders.each do |order| %>
+  <li><%= order.meal.name %></li>
+  <% end %>
+<%= link_to 'Go back', meals_path  %>
+</ul>
