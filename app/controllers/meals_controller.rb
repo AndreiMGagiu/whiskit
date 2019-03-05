@@ -3,6 +3,15 @@ class MealsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @meals = Meal.all
+    # querying users that have at least 1 meal
+    @users = User.joins(:meals).group('users.id').where.not(latitude: nil, longitude: nil)
+
+    @markers = @users.map do |user|
+      {
+        lng: user.longitude,
+        lat: user.latitude
+      }
+    end
   end
 
   def show
