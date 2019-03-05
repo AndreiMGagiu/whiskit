@@ -1,32 +1,5 @@
 <% @meals.each do |meal| %>
-<div class="card mb-3 d-inline-flex" style="max-width: 540px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="card-img" alt="...">
-    </div>
-    <div class="col-md-6">
-      <div class="card-body">
-        <%= link_to meal_path(meal) do %>
-          <h5 class="card-title"><%= meal.name %></h5>
-        <% end %>
-        <p class="card-text"> <%= meal.description %></p>
-        <h4>8:00-9:00pm</h4>
-      </div>
-    </div>
-    <div class="col-md-2 text-center">
-      <div class="avatar-rating">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="avatar" class="card-avatar">
-        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
-      </div>
-      <div class="button-buy">
-        <h3>£ <%= meal.price %></h3>
-        <button type="button" class="rounded-pill">Add</button>
-      </div>
-    </div>
-    </div>
-  </div>
-</div>
-
+  <%= render 'shared/meal_card', meal: meal %>
 <% end %>
 
 <div

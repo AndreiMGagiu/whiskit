@@ -5,8 +5,14 @@
 }
 
 .add-meal-button {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    // padding-top: 60px;
+    // padding-bottom: 60px;
+    background-color: #72CCAB;
+    border-color: #72CCAB;
+}
+
+.padding {
+  padding: 60px 0;
 }
 
 .item {
@@ -35,12 +41,15 @@
 }
 
 .active-meals {
-  padding-top: 20px;
-  padding-bottom: 20px;
-    i {
-      font-size: 200px;
-      padding-top: 0px;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // padding-top: 20px;
+  // padding-bottom: 20px;
+  //   i {
+  //     font-size: 200px;
+  //     padding-top: 0px;
+  //   }
 }
 
 .active-cards {
@@ -51,12 +60,10 @@
 }
 
 .remaing-portions {
-  padding-top: 0px;
-  padding-right: 100px;
-  padding-left: 130px;
+
   text-align: center;
     p {
-      font-size: 16px;
+      font-size: 12px;
     }
 
     i {
@@ -73,12 +80,9 @@
 }
 
 .time-remaining {
-  padding-top: 0px;
-  padding-right: 100px;
-  padding-left: 130px;
   text-align: center;
     p {
-      font-size: 16px;
+      font-size: 12px;
     }
 
     i {
@@ -94,6 +98,11 @@
 
 }
 
+.counters {
+  display: flex;
+  justify-content: space-around;
+  vertical-align: center;
+}
 
 // #tester {
 //   text-align: center;
