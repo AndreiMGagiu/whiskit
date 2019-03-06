@@ -1,0 +1,8 @@
+import flatpickr from "flatpickr"
+import 'flatpickr/dist/themes/dark.css'
+
+flatpickr(".datepicker", {
+  enableTime: true,
+  noCalendar: true,
+  dateFormat: "H:i",
+});
