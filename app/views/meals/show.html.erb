@@ -14,21 +14,24 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade modelcontainer" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
+      <div class="modalimage">
+        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1606&q=80" alt="">
+      </div>
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="exampleModalCenterTitle">@meal.name</h5>
       </div>
       <div class="modal-body">
-        ...
+        portions < 1 >
       </div>
       <div class="modal-footer">
+<!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn-all"><%= link_to "Order this menu", new_meal_order_path(@meal.id)%></button>
+        <button type="button" class="btn-all"><%= link_to "Order", new_meal_order_path(@meal.id)%></button>
       </div>
     </div>
   </div>
