@@ -27,6 +27,91 @@
 .map-position {
   padding-left: 20px;
   padding-right: 40px;
+}
+
+.meal-cards1 {
+  width: 600px;
+  height: 250px;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  position: cover;
+  color: white;
+}
+
+.avatar-meal-card {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  vertical-align: middle;
+  border-radius: 50%;
+  align-item: center;
+}
+
+.card-bottom {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 35%;
+  border-radius: 8px;
+  h1 {
+    font-size: 30px;
+    padding-left: 16px;
+    padding-top: 16px;
+  }
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding-left: 16px;
+  padding-top: 16px;
+}
+
+.name-of-food {
+  padding-right: 16px;
 
 }
 
+.time-counter {
+  padding-right: 16px;
+  i {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+}
+
+.price-buy-now {
+  padding-right: 16px;
+}
+
+.btn-buy-now {
+  color: white;
+  background-color: #72CCAB;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 18px;
+
+  .btn-all:hover {
+    text-decoration: none;
+    color: white;
+    opacity: 0.6;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  a:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
