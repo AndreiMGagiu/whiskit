@@ -1,14 +1,14 @@
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 280px; /* Set the width of the sidebar */
+  width: 220px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: #72CCAB; /* branded blue */
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 90px;
+  padding-top: 100px;
   padding-bottom: 26px;
   text-align: center;
   justify-content: center;
@@ -19,9 +19,18 @@
   z-index: -10;
 }
 
-.sidenav h2, h4 {
+.sidenav h2 {
   color: #FFFFFF;
   font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.sidenav h4 {
+  color: #FFFFFF;
+  font-family: 'Open Sans';
+  font-weight: lighter;
+  font-size: 20px;
 }
 
 .sidenav .icons {

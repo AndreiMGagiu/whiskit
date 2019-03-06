@@ -1,3 +1,10 @@
-<h1>Edit your meal</h1>
-<%= render 'form', meal: @meal %>
-<%= link_to 'Go back', meals_path  %>
+
+<div class="mealform">
+
+  <h3>Edit your meal</h3>
+  <%= render 'form', meal: @meal %>
+  <div style="padding-left: 16px; padding-bottom: 32px;">
+    <%= link_to 'Go back', meals_path  %>
+  </div>
+
+</div>

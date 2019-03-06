@@ -1,0 +1,7 @@
+<h3><%= user.email %></h3>
+<p><%= user.address %></p>
+
+<p><strong>Food:</strong></p>
+<% @meals.each do |meal| %>
+<li><%= meal.name %></li>
+<% end %>
