@@ -1,44 +1,36 @@
-<div class="mealform">
-  <ul>
-  <li>Selected meal: <%= @meal.name %></li>
-  <li><%= @meal.description %></li>
-  <li><%= @meal.price %></li>
-  <li>Suitable for: </li>
-  <% @meal.dietary_requirements.each do |req| %>
-    <li><%= req.categories %></li>
-  <% end %>
-  </ul>
-  <%= link_to 'Edit', edit_meal_path(@meal),class: "btn-all"%>
-<%= link_to 'Go back', meals_path,class: "btn-all"%>
-  <%= link_to 'Delete', meal_path(@meal),class: "btn-all", method: :delete, data: { confirm: 'Are you sure?' }  %>
-  <!-- Button trigger modal -->
-  <button type="button" class="btn-all" data-toggle="modal" data-target="#exampleModalCenter">
-    Order
-  </button>
-
-</div>
-
-<!-- Modal -->
-<div class="modal fade modelcontainer" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modalimage">
-        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1606&q=80" alt="">
-      </div>
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">@meal.name</h5>
-      </div>
-      <div class="modal-body">
-        portions < 1 >
-      </div>
-      <div class="modal-footer">
-<!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn-all"><%= link_to "Order", new_meal_order_path(@meal.id)%></button>
-
-      </div>
-    </div>
+<div class="container">
+  <div class="interior">
+    <a class="btn" href="#open-modal"></i> food-card-click </a>
   </div>
 </div>
+<div id="open-modal" class="modal-window">
+  <div>
+    <a href="#" title="Close" class="modal-close">Close</a>
+
+    <div class="image-modal">
+      <div>
+        <%= image_tag 'lasange.jpg' %>
+      </div>
+    </div>
+
+    <div class="food-title">
+      <h1>Voilà!</h1>
+    </div>
+    <div class="meal-description">
+      <p> description description description description description description description description description description description description description description description description description </p>
+    </div>
+    <div>
+      <h3> pick-up time : 6pm - 8pm </h3>
+    </div>
+    <div>
+      <p> suitable for : veggies / vegans / nut allergies </p>
+    </div>
+    <div>
+      <p> reviews </p>
+    </div>
+     <div>
+      <button> BUY NOW</button>
+    </div>
+    </div>
+</div>
+
