@@ -1,69 +1,85 @@
-<div class="container">
+<div class="sidebar-container">
+  <%= render 'shared/sidebar' %>
+</div>
+<div class="container2">
 
   <!-- <div class="dashboard-flex"> -->
+  <div class="page-content">
 
-  <div class="sidebar">
-  <%= render 'shared/sidebar' %>
+    <div class="padding">
+      <%= link_to '+ add new meal', new_meal_path,class: 'btn btn-success add-meal-button'  %>
+    </div>
 
-    <div class="page-content">
+    <div class="key-information">
 
-      <div class="padding">
-        <%= link_to '+ add new meal', new_meal_path,class: 'btn btn-success add-meal-button'  %>
+      <div class="total-earnings item">
+        <h3>today's earnings</h3>
+        <i class="fas fa-coins icon-3x"></i><h2>£42.50</h2>
       </div>
 
-      <div class="key-information">
-
-        <div class="total-earnings item">
-          <h3>today's earnings</h3>
-          <i class="fas fa-coins icon-3x"></i><h2>£42.50</h2>
-        </div>
-
-        <div class="cook-book item">
-          <h3>cookbook</h3>
-         <i class="fas fa-book icon-3x"></i> <h2>9</h2>
-        </div>
-
-        <div class="reviews item">
-          <h3>reviews</h3>
-          <i class="fas fa-pencil-alt icon-3x"></i> <h2>14</h2>
-        </div>
-
+      <div class="cook-book item">
+        <h3>cookbook</h3>
+       <i class="fas fa-book icon-3x"></i> <h2>9</h2>
       </div>
 
-      <div style="padding-top: 30px; padding-bottom: 30px">
-        <hr>
-      </div>
-
-      <h3>active meals</h3>
-
-      <div class="active-meals">
-
-        <div class="active-cards">
-
-          <div>
-              <%= render 'shared/meal_card', meal: @meal %>
-          </div>
-
-
-            <div class="remaing-portions">
-              <p>remaining portions</p>
-                <div class="meal-counter">
-                  <i class="fas fa-utensils"></i><h2>8</h2>
-                </div>
-            </div>
-
-            <div class="time-remaining">
-              <p>time remaining</p>
-                <div class="time-left">
-                  <i class="far fa-clock"></i><h2> 2h</h2>
-                </div>
-            </div>
-
-        </div>
-
+      <div class="reviews item">
+        <h3>reviews</h3>
+        <i class="fas fa-pencil-alt icon-3x"></i> <h2>14</h2>
       </div>
 
     </div>
+
+    <div style="padding-top: 15px; padding-bottom: 30px">
+      <hr>
+    </div>
+
+    <h3 class="saving" style="padding-bottom: 40px;">active meals <span>.</span><span>.</span><span>.</span></h3>
+
+    <div class="active-meals">
+      <div class="active-cards">
+            <div class="meal-cards1" style="background-image: url('<%= asset_url 'lasange.jpg' %>')">
+                <div class="avatar-meal-card">
+                    <%= image_tag 'jack.png', class: 'avatar'  %>
+                    <h3>4.7</h3>
+                </div>
+
+              <div class="card-bottom">
+
+                <div class="name-of-food">
+                <h1>beef lagasnge</h1>
+                  </div>
+                    <div class="card-info">
+                      <div class="time-counter">
+                        <i class="far fa-clock"></i>
+                        <h3>6pm-8pm</h3>
+                      </div>
+                      <div class="price-buy-now">
+                       <button class="btn-buy-now" type="button">buy</button>
+                       <h3>£4.50</h3>
+                      </div>
+                    </div>
+               </div>
+            </div>
+
+          <div class="active-info">
+              <div class="remaing-portions">
+                <p>remaining portions</p>
+                  <div class="meal-counter">
+                    <i class="fas fa-utensils"></i><h2>8</h2>
+                  </div>
+              </div>
+
+              <div class="time-remaining">
+                <p>time remaining</p>
+                  <div class="time-left">
+                    <i class="far fa-clock"></i><h2> 2h</h2>
+                  </div>
+              </div>
+           </div>
+      </div>
+
+    </div>
+  </div>
 
 </div>
 
