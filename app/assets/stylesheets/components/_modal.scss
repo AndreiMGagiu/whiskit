@@ -1,35 +1,89 @@
-.modalimage {
-  height: 230px;
-  width: 100%;
-  padding: 6px;
-  img {
+.image-modal {
 
-    height: 100%;
-    width: 100%;
+}
+
+.food-title {
+  padding-top: 15px;
+}
+
+.meal-description {
+
+}
+
+
+
+/////////////////////////
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  &:target {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  &>div {
+    width: 20%px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background: #ffffff;
+    color: #333333;
+  }
+  header {
+    font-weight: bold;
+  }
+  h1 {
+    font-size: 150%;
+    margin: 0 0 15px;
+    color: #333333;
   }
 }
 
-.modal-footer {
-  justify-content: space-around;
-}
-
-.modal-body {
+.modal-close {
+  color: #aaa;
+  padding-bottom: 10px;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
   text-align: center;
-}
-
-.modal-header {
-  text-align: center;
-  h5 {
-    text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+  &:hover {
+    color: #000;
   }
 }
 
-.modelcontainer {
-  width: 350px;
-  margin-left: calc(50vw - 175px);
+/* Demo Styles */
+
+.container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.modal-content {
-  align-content: center;
+.btn {
+  background-color: #fff;
+  padding: 1em 1.5em;
+  border-radius: 3px;
+  text-decoration: none;
+  i {
+    padding-right: 0.3em;
+  }
 }
+
 
