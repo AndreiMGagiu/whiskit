@@ -36,31 +36,27 @@
 <div class="container1" style="padding-top: 0px !important;">
   <div style="width: 70%; padding: 16px; padding-bottom: 16px; display: flex;flex-wrap: wrap;flex-direction:row; justify-content: left;">
     <% @meals.each do |meal| %>
-      <div class="meal-cards1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo, height: 300, width: 400, crop: :fill %>')">
-        <div class="avatar-meal-card">
-          <%= image_tag 'jack.png', class: 'avatar'  %>
-          <h3>4.7</h3>
-        </div>
+      <% unless meal.photo.blank? %>
+        <div class="meal-cards1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo, height: 300, width: 400, crop: :fill %>')">
+          <div class="avatar-meal-card">
+            <%= image_tag 'jack.png', class: 'avatar'  %>
+            <h3>4.7</h3>
+          </div>
 
-        <div class="card-bottom">
-          <%= link_to meal_path(meal) do %>
-            <div class="name-of-food">
-              <h1><%= meal.name %></h1>
-              <h1><strong>20:00-21:00</strong><%#= meal.pick_up_start %> <%#=meal.pick_up_end%></h1>
+          <div class="card-bottom">
+            <%= link_to meal_path(meal) do %>
+              <div class="name-of-food">
+                <h1><%= meal.name %></h1>
+                <h1><strong>20:00-21:00</strong><%#= meal.pick_up_start %> <%#=meal.pick_up_end%></h1>
+              </div>
+            <% end %>
+            <div class="price-buy-now" style="padding-bottom: 16px;">
+              <h3>£4.50<%= meal.price %></h3>
+              <button class="btn-buy-now" type="button">buy</button>
             </div>
-          <% end %>
-        </div>
-
-
-        <div class="card-info">
-          <div class="time-counter">
-          </div>
-          <div class="price-buy-now" style="padding-bottom: 16px;">
-            <h3>£4.50<%= meal.price %></h3>
-            <button class="btn-buy-now" type="button">buy</button>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <div
