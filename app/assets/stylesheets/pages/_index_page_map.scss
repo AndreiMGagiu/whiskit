@@ -13,7 +13,6 @@
 
 
 .map-position {
-  padding-left: 20px;
   padding-right: 0px;
   height: 100vh;
   position: fixed;
@@ -25,11 +24,11 @@
 
 // card css
 
-.cardsgrid {
-  display: grid;
-  grid-template-columns: 2fr 2fr ;
-  grid-gap: 16px;
-}
+// .cardsgrid {
+//   display: grid;
+//   grid-template-columns: 2fr 2fr ;
+//   grid-gap: 16px;
+// }
 
 .meal-cards {
   width: 60%;
@@ -42,9 +41,12 @@
 }
 
 .meal-cards1 {
-  width: 400px;
+  margin-right: 10px;
+  min-width: 250px;
+  width: 32%;
   height: 250px;
   border-radius: 8px;
+  margin-bottom: 10px;
   position: relative;
   display: flex;
   align-items: flex-end;
