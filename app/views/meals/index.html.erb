@@ -27,6 +27,10 @@
         <div class="col-xs-6">
           <div class="meal-cards1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
          url('<%= cl_image_path meal.photo, height: 300, width: 400, crop: :fill %>')">
+
+      <div class="cardsgrid ">
+        <% @meals.each do |meal| %>
+          <div class="meal-cards1" style="background-image: url('<%= asset_url 'lasange.jpg' %>'); margin: 10px;">
             <div class="avatar-meal-card">
                 <%= image_tag 'jack.png', class: 'avatar'  %>
                 <h3>4.7</h3>
@@ -35,22 +39,22 @@
               <%= link_to meal_path(meal) do %>
                 <div class="name-of-food">
                   <h1><%= meal.name %></h1>
+                  <h1><strong>20:00-21:00</strong><%#= meal.pick_up_start %> <%#=meal.pick_up_end%></h1>
                 </div>
               <% end %>
               <div class="card-info">
                 <div class="time-counter">
-                  <i class="far fa-clock"></i>
-                  <h3><%= meal.pick_up_start %> - <%=meal.pick_up_end%></h3>
                 </div>
-                <div class="price-buy-now">
+                <div class="price-buy-now" style="padding-bottom: 16px;">
+                  <h3>£4.50<%= meal.price %></h3>
                   <button class="btn-buy-now" type="button">buy</button>
-                  <h3>£<%= meal.price %></h3>
                 </div>
               </div>
             </div>
           </div>
-        </div>      <!-- STARTS HERE -->
-      <% end %>
+    <!-- STARTS HERE -->
+        <% end %>
+      </div>
     </div>
   </div>
     <!-- END HERE -->
