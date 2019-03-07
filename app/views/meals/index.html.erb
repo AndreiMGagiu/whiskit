@@ -14,11 +14,14 @@
     <h3>
       <div>
         <%= form_tag meals_path, method: :get do %>
+        <button class="search-button" type="submit">
+          <i class="fa fa-search"></i>
+        </button>
         <!-- Search bar -->
         <%= text_field_tag :query,
         '',
-        placeholder: "Find food near you?", class: "search" %>
-        <button class="btn-add" type="submit">Search...</button>
+        placeholder: "Find food near you?", class: "index-search" %>
+
         <% end %>
         <!-- Search bar -->
       </div>
