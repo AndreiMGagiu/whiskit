@@ -12,8 +12,20 @@
 
  ">
   <div class="leftdiv" style="padding-left: 16px;">
-    <h3 id="title"> search here (placeholder=addresssearched)</h3>
+    <h3>
+      <div>
+        <%= form_tag meals_path, method: :get do %>
+        <!-- Search bar -->
+        <%= text_field_tag :query,
+        '',
+        placeholder: "Find food near you?", class: "search" %>
+        <button class="btn-add" type="submit">Search...</button>
+        <% end %>
+        <!-- Search bar -->
+      </div>
+    </h3>
   </div>
+
   <div class="rightdiv" style="padding-right: 16px;">
     <h3>filter here on this side </h3>
   </div>

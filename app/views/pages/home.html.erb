@@ -3,18 +3,18 @@
     <h1>Welcome to <strong>Whiskit.</strong></h1>
     <p>Find local home-cooked food.</p>
 
-      <div class="logosearch">
-
-        <%= form_tag meals_path, method: :get do %> <!-- Search bar -->
+    <div>
+      <div>
+        <%= form_tag meals_path, method: :get do %>
+        <!-- Search bar -->
         <%= text_field_tag :query,
-          '',
-          class: "form-control",
-          placeholder: "Find food near you?"
-        %>
-        <% end %> <!-- Search bar -->
+        '',
+        placeholder: "Find food near you?", class: "search" %>
+        <button class="btn-add" type="submit">Search...</button>
+        <% end %>
+        <!-- Search bar -->
       </div>
-
-    <!-- <a class="btn btn-flat" href="#">Apply now</a> -->
+    </div>
   </div>
 </div>
 <div>
