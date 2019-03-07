@@ -1,4 +1,20 @@
-<h3 id="title"> meals in user.postcode</h3>
+
+
+<div style="
+ flex-grow: 0;
+ background-color: white;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+
+ ">
+  <div class="leftdiv" style="padding-left: 16px;">
+    <h3 id="title"> search here___________</h3>
+  </div>
+  <div class="rightdiv" style="padding-right: 16px;">
+    <h3>filter here on this side </h3>
+  </div>
+</div>
 
 <div class="container1" style="padding-top: 0px !important">
 
@@ -34,10 +50,11 @@
 
   <div
     class="map-position" id="map"
-    style="width: 40%;
-    height: 600px;"
+    style="width: 30%;
+    height: 84vh;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
+
 
 </div>
