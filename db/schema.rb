@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_124826) do
+ActiveRecord::Schema.define(version: 2019_03_07_131625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 2019_03_06_124826) do
   end
 
   create_table "meal_dietary_requirements", force: :cascade do |t|
-    t.bigint "dietary_requirements_id"
+    t.bigint "dietary_requirement_id"
     t.bigint "meal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dietary_requirements_id"], name: "index_meal_dietary_requirements_on_dietary_requirements_id"
+    t.index ["dietary_requirement_id"], name: "index_meal_dietary_requirements_on_dietary_requirement_id"
     t.index ["meal_id"], name: "index_meal_dietary_requirements_on_meal_id"
   end
 
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2019_03_06_124826) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "meal_dietary_requirements", "dietary_requirements", column: "dietary_requirements_id"
+  add_foreign_key "meal_dietary_requirements", "dietary_requirements"
   add_foreign_key "meal_dietary_requirements", "meals"
   add_foreign_key "orders", "meals"
 end
