@@ -3,9 +3,11 @@
   <li>Selected meal: <%= @meal.name %></li>
   <li><%= @meal.description %></li>
   <li><%= @meal.price %></li>
+  <li><%= @meal.dietary_requirements %></li>
   </ul>
-  <button type="button" class="btn-all"><%= link_to 'Edit', edit_meal_path(@meal)%></button>
-  <button type="button" class="btn-all"><%= link_to 'Go back', meals_path  %></button>
+  <%= link_to 'Edit', edit_meal_path(@meal),class: "btn-all"%>
+<%= link_to 'Go back', meals_path,class: "btn-all"%>
+  <%= link_to 'Delete', meal_path(@meal),class: "btn-all", method: :delete, data: { confirm: 'Are you sure?' }  %>
   <!-- Button trigger modal -->
   <button type="button" class="btn-all" data-toggle="modal" data-target="#exampleModalCenter">
     Order
@@ -32,6 +34,7 @@
         </button> -->
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn-all"><%= link_to "Order", new_meal_order_path(@meal.id)%></button>
+
       </div>
     </div>
   </div>

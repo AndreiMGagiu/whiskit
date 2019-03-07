@@ -1,37 +1,35 @@
-<h3 id="title"> meals in user.postcode</h3>
+<h3 id="title"> meals in your area:  </h3>
 
 <div class="container1" style="padding-top: 0px !important">
-
+<% @meals.each do |meal| %>      <!-- STARTS HERE -->
   <div class="meal-cards1" style="background-image: url('<%= asset_url 'lasange.jpg' %>')">
-
     <div class="avatar-meal-card">
         <%= image_tag 'jack.png', class: 'avatar'  %>
         <h3>4.7</h3>
     </div>
 
         <div class="card-bottom">
-
+          <%= link_to meal_path(meal) do %>
           <div class="name-of-food">
-                 <h1>beef lagasnge</h1>
+            <h1><%= meal.name %></h1>
           </div>
-
+          <% end %>
           <div class="card-info">
 
               <div class="time-counter">
                 <i class="far fa-clock"></i>
-                <h3>6pm-8pm</h3>
+                <h3><%= meal.pick_up_start %> - <%=meal.pick_up_end%></h3>
               </div>
 
               <div class="price-buy-now">
                 <button class="btn-buy-now" type="button">buy</button>
-                <h3>£4.50</h3>
+                <h3>£<%= meal.price %></h3>
               </div>
-
           </div>
+      </div>
     </div>
-
-  </div>
-
+  <% end -%>
+    <!-- END HERE -->
   <div
     class="map-position" id="map"
     style="width: 40%;
