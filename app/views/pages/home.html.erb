@@ -2,7 +2,18 @@
   <div class="container">
     <h1>Welcome to <strong>Whiskit.</strong></h1>
     <p>Find local home-cooked food.</p>
-    <h4>SEARCH HERE</h4>
+
+      <div class="logosearch">
+
+        <%= form_tag meals_path, method: :get do %> <!-- Search bar -->
+        <%= text_field_tag :query,
+          '',
+          class: "form-control",
+          placeholder: "Find food near you?"
+        %>
+        <% end %> <!-- Search bar -->
+      </div>
+
     <!-- <a class="btn btn-flat" href="#">Apply now</a> -->
   </div>
 </div>

@@ -1,3 +1,4 @@
+// map css
 .container1 {
   display: flex;
   padding-top: 30px;
@@ -10,6 +11,19 @@
   padding-left: 15px;
 }
 
+
+.map-position {
+  padding-left: 20px;
+  padding-right: 0px;
+  height: 100vh;
+  position: absolute;
+  top: 16.7vh;
+  right: 0;
+
+}
+
+// card css
+
 .meal-cards {
   width: 60%;
   display: flex;
@@ -17,16 +31,6 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 5px;
-}
-
-// #map {
-//   display: flex;
-//   justify-content: space-between;
-// // }
-
-.map-position {
-  padding-left: 20px;
-  padding-right: 40px;
 }
 
 .meal-cards1 {

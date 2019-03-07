@@ -2,9 +2,17 @@ class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
+    marker2 = nil
     @meals = Meal.all
     # querying users that have at least 1 meal
-    @users = User.joins(:meals).group('users.id').where.not(latitude: nil, longitude: nil)
+    if params[:query].present?
+      @users = User.near(params[:query], 1).joins(:meals).group('users.id').where.not(latitude: nil, longitude: nil)
+      results = Geocoder.search(params[:query])
+      marker2 = { lat: results.first.coordinates.first, lng: results.first.coordinates.last}
+
+    else
+      @users = User.joins(:meals).group('users.id').where.not(latitude: nil, longitude: nil)
+    end
 
     @markers = @users.map do |user|
       {
@@ -13,6 +21,7 @@ class MealsController < ApplicationController
         infoWindow: render_to_string(partial: "infowindow", locals: { user: user })
       }
     end
+    @markers << marker2 if marker2
   end
 
   def show
