@@ -1,51 +1,57 @@
-<h3 id="title"> meals in your area:  </h3>
+<!-- <h3 id="title"> meals in your area:  </h3> -->
 
-
-<div style="
+<div class="searchbarindex" style="
  flex-grow: 0;
  background-color: white;
  display: flex;
  justify-content: space-between;
  align-items: center;
+ position: sticky;
+ z-index: 2;
+ top: 70px;
 
  ">
   <div class="leftdiv" style="padding-left: 16px;">
-    <h3 id="title"> search here___________</h3>
+    <h3 id="title"> search here (placeholder=addresssearched)</h3>
   </div>
   <div class="rightdiv" style="padding-right: 16px;">
     <h3>filter here on this side </h3>
   </div>
 </div>
 
-<div class="container1" style="padding-top: 0px !important">
-<% @meals.each do |meal| %>      <!-- STARTS HERE -->
-  <div class="meal-cards1" style="background-image: url('<%= asset_url 'lasange.jpg' %>')">
-    <div class="avatar-meal-card">
-        <%= image_tag 'jack.png', class: 'avatar'  %>
-        <h3>4.7</h3>
-    </div>
+<div class="container1" style="padding-top: 0px !important;">
 
-        <div class="card-bottom">
-          <%= link_to meal_path(meal) do %>
-          <div class="name-of-food">
-            <h1><%= meal.name %></h1>
-          </div>
-          <% end %>
-          <div class="card-info">
-
-              <div class="time-counter">
-                <i class="far fa-clock"></i>
-                <h3><%= meal.pick_up_start %> - <%=meal.pick_up_end%></h3>
+  <div style="width: 70%; padding: 16px; padding-bottom: 16px;">
+    <div class="row">
+      <% @meals.each do |meal| %>
+        <div class="col-xs-6">
+          <div class="meal-cards1" style="background-image: url('<%= asset_url 'lasange.jpg' %>'); margin: 10px;">
+            <div class="avatar-meal-card">
+                <%= image_tag 'jack.png', class: 'avatar'  %>
+                <h3>4.7</h3>
+            </div>
+            <div class="card-bottom">
+              <%= link_to meal_path(meal) do %>
+                <div class="name-of-food">
+                  <h1><%= meal.name %></h1>
+                </div>
+              <% end %>
+              <div class="card-info">
+                <div class="time-counter">
+                  <i class="far fa-clock"></i>
+                  <h3><%= meal.pick_up_start %> - <%=meal.pick_up_end%></h3>
+                </div>
+                <div class="price-buy-now">
+                  <button class="btn-buy-now" type="button">buy</button>
+                  <h3>£<%= meal.price %></h3>
+                </div>
               </div>
-
-              <div class="price-buy-now">
-                <button class="btn-buy-now" type="button">buy</button>
-                <h3>£<%= meal.price %></h3>
-              </div>
+            </div>
           </div>
-      </div>
+        </div>      <!-- STARTS HERE -->
+      <% end %>
     </div>
-  <% end -%>
+  </div>
     <!-- END HERE -->
   <div
     class="map-position" id="map"
