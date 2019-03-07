@@ -16,8 +16,9 @@
   padding-left: 20px;
   padding-right: 0px;
   height: 100vh;
-  position: absolute;
-  top: 16.7vh;
+  position: fixed;
+  position: sticky;
+  top: 132px;
   right: 0;
 
 }
@@ -34,7 +35,7 @@
 }
 
 .meal-cards1 {
-  width: 600px;
+  width: 450px;
   height: 250px;
   border-radius: 8px;
   position: relative;
@@ -42,6 +43,7 @@
   align-items: flex-end;
   position: cover;
   color: white;
+  // padding-bottom: 40px
 }
 
 .avatar-meal-card {
