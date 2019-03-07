@@ -35,6 +35,8 @@
 
     </div>
   <div style="padding-top: 30px; padding-bottom: 40px;">
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
     <%= f.button :submit, class: "btn-add" %>
   </div>
   <% end %>

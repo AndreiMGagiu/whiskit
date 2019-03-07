@@ -80,6 +80,6 @@ class MealsController < ApplicationController
 
   def meal_params
     params.require(:meal).permit(:id, :name, :description, :price, :type_of, :portions, :pick_up_start, :pick_end,
-    :dietary_requirement_ids)
+    :dietary_requirement_ids, :photo)
   end
 end
