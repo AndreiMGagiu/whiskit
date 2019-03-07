@@ -25,7 +25,8 @@
     <div class="row">
       <% @meals.each do |meal| %>
         <div class="col-xs-6">
-          <div class="meal-cards1" style="background-image: url('<%= asset_url 'lasange.jpg' %>'); margin: 10px;">
+          <div class="meal-cards1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path meal.photo, height: 300, width: 400, crop: :fill %>')">
             <div class="avatar-meal-card">
                 <%= image_tag 'jack.png', class: 'avatar'  %>
                 <h3>4.7</h3>
