@@ -1,6 +1,7 @@
 class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     marker2 = nil
     @meals = Meal.all
@@ -34,8 +35,13 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     @meal.user = current_user
+
     if @meal.save
       redirect_to meal_path(@meal.id)
+      params[:post][:dietary_requirement_ids].delete_at(0)
+      params[:post][:dietary_requirement_ids].each do |req_id|
+        MealDietaryRequirement.create!(dietary_requirement_id: req_id.to_i, meal_id: @meal.id)
+      end
     else
       render :new
     end
@@ -45,6 +51,11 @@ class MealsController < ApplicationController
   end
 
   def update
+    MealDietaryRequirement.where(meal_id: params[:id]).destroy_all
+    params[:post][:dietary_requirement_ids].delete_at(0)
+    params[:post][:dietary_requirement_ids].each do |req_id|
+      MealDietaryRequirement.create!(dietary_requirement_id: req_id.to_i, meal_id: params[:id].to_i)
+    end
     respond_to do |format|
       if @meal.update(meal_params)
         format.html { redirect_to meal_path(@meal), notice: 'Congratulations your meal has been succesfully updated'}
@@ -68,7 +79,7 @@ class MealsController < ApplicationController
   end
 
   def meal_params
-    params.require(:meal).permit(:name, :description, :price, :type_of, :portions, :pick_up_start, :pick_end,
+    params.require(:meal).permit(:id, :name, :description, :price, :type_of, :portions, :pick_up_start, :pick_end,
     :dietary_requirement_ids)
   end
 end

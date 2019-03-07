@@ -3,7 +3,10 @@
   <li>Selected meal: <%= @meal.name %></li>
   <li><%= @meal.description %></li>
   <li><%= @meal.price %></li>
-  <li><%= @meal.dietary_requirements %></li>
+  <li>Suitable for: </li>
+  <% @meal.dietary_requirements.each do |req| %>
+    <li><%= req.categories %></li>
+  <% end %>
   </ul>
   <%= link_to 'Edit', edit_meal_path(@meal),class: "btn-all"%>
 <%= link_to 'Go back', meals_path,class: "btn-all"%>
