@@ -69,9 +69,9 @@
   width: 200%;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
   height: 35%;
-  border-radius: 8px;
+  border-radius: 0px 0px 8px 8px;
   h1 {
     font-size: 20px;
     padding-left: 16px;
@@ -106,16 +106,19 @@
 
 .price-buy-now {
   padding-right: 16px;
+  padding-top: 14px;
+  text-align: center;
 }
 
 .btn-buy-now {
   color: white;
   background-color: #72CCAB;
-  padding: 2px 16px;
+  padding: 1px 16px;
   border-radius: 50px;
   font-weight: normal;
   text-decoration: none;
   font-size: 18px;
+
 
   .btn-all:hover {
     text-decoration: none;

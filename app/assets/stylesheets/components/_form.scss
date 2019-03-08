@@ -22,13 +22,18 @@
     width: 50%;
     height: 100%;
     padding-left: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding-bottom: 6px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
 
   }
 }
 
 .tick-items {
-  padding-top: 20px;
+  // padding-top: 20px;
+}
+
+label {
+  margin-bottom: 0.68em;
 }

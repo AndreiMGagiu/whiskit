@@ -27,25 +27,17 @@
       </div>
     </h3>
   </div>
-
   <div class="rightdiv" style="padding-right: 16px;">
     <h3>Filter</h3>
-
     <%= form_tag meals_path, method: :get do%>
       <% @diets.each do |dietary_requirement| %>
-          <!-- <li> -->
             <%= check_box_tag 'dietary_requirement_ids[]', dietary_requirement.id -%>
             <%= h dietary_requirement.categories -%>
-          <!-- </li> -->
       <% end %>
       <%= submit_tag "Search", class: "fa-search"%>
     <% end %>
-
-    <!-- create a form s bit like search form but instead of textfield have checkboxes. have a filter
-    button to click on whenever you check the boxes you want. When filter button (submit) is clicked you send the params to the index method of meals. Inside there you check if the params is present. if it is you retrieve the meals that meat the filter stuff by querying the database -->
   </div>
 </div>
-
 <div class="container1" style="padding-top: 0px !important;">
   <div style="width: 70%; padding: 16px; padding-bottom: 16px; display: flex;flex-wrap: wrap;flex-direction:row; justify-content: left;">
     <% @meals.each do |meal| %>
@@ -55,24 +47,24 @@
             <%= image_tag 'jack.png', class: 'avatar'  %>
             <h3>4.7</h3>
           </div>
-
           <div class="card-bottom">
               <div class="name-of-food">
-                <a href="#open-modal">
+                <a href="#open-modal_<%= meal.id %>">
                   <h1><%= meal.name %></h1>
                 </a>
-                <h1><strong>20:00-21:00</strong><%#= meal.pick_up_start %> <%#=meal.pick_up_end%></h1>
+                <h1><strong><%= meal.pick_up_start %> <%=meal.pick_up_end%></strong>
               </div>
             <div class="price-buy-now" style="padding-bottom: 16px;">
-              <h3>£4.50<%= meal.price %></h3>
-              <a href="#open-modal">
+              <h3>£<%= meal.price %></h3>
+              <a href="#open-modal_<%= meal.id %>">
                 <button class="btn-buy-now" type="button">buy</button>
               </a>
             </div>
           </div>
         </div>
       <% end %>
-    <% end %>   <!-- ITERATION ENDS HERE FOR THE INDEX -->
+      <%= render 'modal', meal: meal %>
+    <% end %>
   </div>
   <div
     class="map-position" id="map"
@@ -81,53 +73,4 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
-
-
-
 </div>
-
-<div id="open-modal" class="modal-window">
-  <!-- START -->
-  <div>
-    <a href="#" title="Close" class="modal-close">Close</a>
-
-    <div class="image-modal">
-      <div>
-        <%= image_tag 'lasange.jpg' %>
-      </div>
-    </div>
-
-    <div class="avatar-meal-card-modal">
-            <%= image_tag 'jack.png', class: 'avatar'  %>
-            <h3>4.7</h3>
-    </div>
-
-    <div class="food-title">
-      <h2>TITLE OF FOOD</h2>
-    </div>
-
-    <div class="meal-description">
-      <p> description description description description description description description description description description description description description description descriptiondescription description description description description  </p>
-    </div>
-
-    <div class="pick-up-time">
-      <h4> portions remaining : 4 </h4>
-    </div>
-
-    <div class="pick-up-time">
-      <h4> pick-up time : 6pm - 8pm </h4>
-    </div>
-    <div>
-      <h4> suitable for : veggies / vegans / nut allergies </h4>
-    </div>
-    <div>
-      <a href="#"><h4> read reviews of the chef </h4></a>
-    </div>
-     <div>
-      <button> BUY NOW</button>
-
-
-    </div>
-    </div>
-</div>
-
