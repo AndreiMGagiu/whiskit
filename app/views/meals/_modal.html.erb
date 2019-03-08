@@ -12,22 +12,23 @@
       <h2><%= meal.name %></h2>
     </div>
     <div class="meal-description">
-      <p> description description description description description description description description description description description description description description descriptiondescription description description description description  </p>
+      <p><%= meal.description %></p>
     </div>
     <div class="pick-up-time">
-      <h4> portions remaining : 4 </h4>
+      <h4>portions remaining:  <%= meal.portions %></h4>
     </div>
     <div class="pick-up-time">
-      <h4> pick-up time : 6pm - 8pm </h4>
+      <h4> pick up between : <%= meal.pick_up_start %> <%=meal.pick_up_end%> </h4>
     </div>
     <div>
-      <h4> suitable for : veggies / vegans / nut allergies </h4>
+      <h4> suitable for : <%=meal.dietary_requirements%> </h4>
     </div>
     <div>
       <a href="#"><h4> read reviews of the chef </h4></a>
     </div>
     <div>
-      <button> BUY NOW</button>
+      <button class="btn-all"> BUY NOW</button>
     </div>
   </div>
 </div>
+
