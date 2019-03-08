@@ -4,7 +4,6 @@ class MealsController < ApplicationController
 
   def index
     @diets = DietaryRequirement.all
-
     if params[:dietary_requirement_ids].present?
       @meals = Meal.joins(meal_dietary_requirements: :dietary_requirement).where(meal_dietary_requirements: { dietary_requirement_id: params[:dietary_requirement_ids]}).uniq
       # @meals = DietaryRequirement.where(categories: params[:dietary_requirement_ids]).meals
