@@ -44,15 +44,17 @@
           </div>
 
           <div class="card-bottom">
-            <%= link_to meal_path(meal) do %>
               <div class="name-of-food">
-                <h1><%= meal.name %></h1>
+                <a href="#open-modal">
+                  <h1><%= meal.name %></h1>
+                </a>
                 <h1><strong>20:00-21:00</strong><%#= meal.pick_up_start %> <%#=meal.pick_up_end%></h1>
               </div>
-            <% end %>
             <div class="price-buy-now" style="padding-bottom: 16px;">
               <h3>£4.50<%= meal.price %></h3>
-              <button class="btn-buy-now" type="button">buy</button>
+              <a href="#open-modal">
+                <button class="btn-buy-now" type="button">buy</button>
+              </a>
             </div>
           </div>
         </div>
@@ -68,4 +70,50 @@
   ></div>
 
 
+
 </div>
+
+<div id="open-modal" class="modal-window">
+  <div>
+    <a href="#" title="Close" class="modal-close">Close</a>
+
+    <div class="image-modal">
+      <div>
+        <%= image_tag 'lasange.jpg' %>
+      </div>
+    </div>
+
+    <div class="avatar-meal-card-modal">
+            <%= image_tag 'jack.png', class: 'avatar'  %>
+            <h3>4.7</h3>
+    </div>
+
+    <div class="food-title">
+      <h2>TITLE OF FOOD</h2>
+    </div>
+
+    <div class="meal-description">
+      <p> description description description description description description description description description description description description description description descriptiondescription description description description description  </p>
+    </div>
+
+    <div class="pick-up-time">
+      <h4> portions remaining : 4 </h4>
+    </div>
+
+    <div class="pick-up-time">
+      <h4> pick-up time : 6pm - 8pm </h4>
+    </div>
+    <div>
+      <h4> suitable for : veggies / vegans / nut allergies </h4>
+    </div>
+    <div>
+      <a href="#"><h4> read reviews of the chef </h4></a>
+    </div>
+     <div>
+      <button> BUY NOW</button>
+
+
+    </div>
+    </div>
+</div>
+
