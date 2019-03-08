@@ -1,4 +1,4 @@
-x<!-- <h3 id="title"> meals in your area:  </h3> -->
+<!-- <h3 id="title"> meals in your area:  </h3> -->
 
 <div class="searchbarindex" style="
  flex-grow: 0;
@@ -28,7 +28,14 @@ x<!-- <h3 id="title"> meals in your area:  </h3> -->
     </h3>
   </div>
   <div class="rightdiv" style="padding-right: 16px;">
-    <h3>filter here on this side </h3>
+    <h3>Filter</h3>
+    <%= form_tag meals_path, method: :get do%>
+      <% @diets.each do |dietary_requirement| %>
+            <%= check_box_tag 'dietary_requirement_ids[]', dietary_requirement.id -%>
+            <%= h dietary_requirement.categories -%>
+      <% end %>
+      <%= submit_tag "Search", class: "fa-search"%>
+    <% end %>
   </div>
 </div>
 <div class="container1" style="padding-top: 0px !important;">
@@ -67,7 +74,3 @@ x<!-- <h3 id="title"> meals in your area:  </h3> -->
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
 </div>
-
-
-
-
