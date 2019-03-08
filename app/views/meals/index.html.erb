@@ -29,7 +29,20 @@
   </div>
 
   <div class="rightdiv" style="padding-right: 16px;">
-    <h3>filter here on this side </h3>
+    <h3>Filter</h3>
+
+    <%= form_tag meals_path, method: :get do%>
+      <% @diets.each do |dietary_requirement| %>
+          <!-- <li> -->
+            <%= check_box_tag 'dietary_requirement_ids[]', dietary_requirement.id -%>
+            <%= h dietary_requirement.categories -%>
+          <!-- </li> -->
+      <% end %>
+      <%= submit_tag "Search", class: "fa-search"%>
+    <% end %>
+
+    <!-- create a form s bit like search form but instead of textfield have checkboxes. have a filter
+    button to click on whenever you check the boxes you want. When filter button (submit) is clicked you send the params to the index method of meals. Inside there you check if the params is present. if it is you retrieve the meals that meat the filter stuff by querying the database -->
   </div>
 </div>
 
@@ -59,7 +72,7 @@
           </div>
         </div>
       <% end %>
-    <% end %>
+    <% end %>   <!-- ITERATION ENDS HERE FOR THE INDEX -->
   </div>
   <div
     class="map-position" id="map"
@@ -74,6 +87,7 @@
 </div>
 
 <div id="open-modal" class="modal-window">
+  <!-- START -->
   <div>
     <a href="#" title="Close" class="modal-close">Close</a>
 

@@ -3,8 +3,16 @@ class MealsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @diets = DietaryRequirement.all
+
+    if params[:dietary_requirement_ids].present?
+      @meals = Meal.joins(meal_dietary_requirements: :dietary_requirement).where(meal_dietary_requirements: { dietary_requirement_id: params[:dietary_requirement_ids]}).uniq
+      # @meals = DietaryRequirement.where(categories: params[:dietary_requirement_ids]).meals
+    else
+      @meals = Meal.all
+    end
+
     marker2 = nil
-    @meals = Meal.all
     # querying users that have at least 1 meal
     if params[:query].present?
       @users = User.near(params[:query], 1).joins(:meals).group('users.id').where.not(latitude: nil, longitude: nil)
