@@ -1,7 +1,9 @@
 <div id="open-modal_<%= meal.id %>" class="modal-window">
   <div>
+     <% unless meal.photo.blank? %>
     <div class="modalbackimage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo %>')">
     </div>
+    <% end %>
     <a href="" title="Close" class="modal-close"> X </a>
     <div class="df">
       <div class="food-title">
@@ -18,7 +20,7 @@
         <h4> portions remaining : <%= meal.portions %> </h4>
       </div>
       <div class="pick-up-time">
-        <h4> pick-up time :<%= meal.pick_up_start.strftime("%I:%M%p") %> - <%= meal.pick_up_end %></h4>
+        <h4> pick-up time :<%= meal.pick_up_start %> - <%= meal.pick_up_end %></h4>
       </div>
       <div>
         <h4> suitable for :</h4>
