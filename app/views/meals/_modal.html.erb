@@ -1,33 +1,38 @@
 <div id="open-modal_<%= meal.id %>" class="modal-window">
   <div>
+    <div class="modalbackimage" style="background-image: url(<%= asset_path('lasange.jpg') %>);">
+    </div>
     <a href="#" title="Close" class="modal-close"> X </a>
-    <div class="image-modal">
-        <%= image_tag 'lasange.jpg' %>
+    <div class="df">
+      <div class="food-title">
+        <h2><%= meal.name %></h2>
+      </div>
+      <div class="avatar-meal-card-modal">
+        <%= image_tag 'jack.png', class: 'avatar'  %>
+        <h3>4.7</h3>
+      </div>
+
     </div>
-    <div class="avatar-meal-card-modal">
-      <%= image_tag 'jack.png', class: 'avatar'  %>
-      <h3>4.7</h3>
-    </div>
-    <div class="food-title">
-      <h2><%= meal.name %></h2>
-    </div>
-    <div class="meal-description">
-      <p> description description description description description description description description description description description description description description descriptiondescription description description description description  </p>
-    </div>
-    <div class="pick-up-time">
-      <h4> portions remaining : 4 </h4>
-    </div>
-    <div class="pick-up-time">
-      <h4> pick-up time : 6pm - 8pm </h4>
-    </div>
-    <div>
-      <h4> suitable for : veggies / vegans / nut allergies </h4>
-    </div>
-    <div>
-      <a href="#"><h4> read reviews of the chef </h4></a>
-    </div>
-    <div>
-      <button> BUY NOW</button>
+    <div style="padding: 0 20px;">
+      <div class="pick-up-time">
+        <h4> portions remaining : 4 </h4>
+      </div>
+      <div class="pick-up-time">
+        <h4> pick-up time : 6pm - 8pm </h4>
+      </div>
+      <div>
+        <h4> suitable for : veggies / vegans / nut allergies </h4>
+      </div>
+      <div class="meal-description">
+        <p> description description description description description description description description description description description description description description descriptiondescription description description description description  </p>
+      </div>
+      <div>
+        <a href="#"><h4> read reviews of the chef </h4></a>
+      </div>
+      <div>
+        <button class="btn-all"> BUY NOW</button>
+      </div>
+
     </div>
   </div>
 </div>
