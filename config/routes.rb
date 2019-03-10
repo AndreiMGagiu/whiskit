@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :meals do
     resources :orders
+    resources :reviews, only: [:new, :create]
   end
    # resources :orders, only :destroy
   get 'dashboard', to: 'pages#dashboard', as: :dashboard

@@ -35,12 +35,21 @@
       <div class="meal-description">
         <p> <%= meal.description %>  </p>
       </div>
-      <div>
-        <a href="#"><h4> read reviews of the chef </h4></a>
-      </div>
-         <%= link_to "buy", new_meal_order_path(meal), class: "btn-buy-now" %>
-      <div>
-      </div>
+        <div>
+          <%= link_to "leave a review", new_meal_review_path(meal), class: 'btn-buy-now'  %>
+        </div>
+          <div>
+             <%= link_to "buy", new_meal_order_path(meal), class: "btn-buy-now" %>
+          </div>
+          <div>
+            <ul>
+             <% meal.reviews.each do |review|  %> <!-- TEST TEST -->
+             <li><%= review.content %>
+               <%= review.rating %>
+             </li>
+             <% end %>
+            </ul>
+          </div>
 
     </div>
   </div>
