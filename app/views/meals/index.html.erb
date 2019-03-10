@@ -32,7 +32,7 @@
     <%= form_tag meals_path, method: :get do%>
       <% @diets.each do |dietary_requirement| %>
             <%= check_box_tag 'dietary_requirement_ids[]', dietary_requirement.id -%>
-           
+
             <%=  dietary_requirement.categories %>
       <% end %>
       <%= submit_tag "Search", class: "fa-search"%>
