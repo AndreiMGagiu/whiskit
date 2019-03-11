@@ -1,17 +1,20 @@
+
+<div class="containerorder">
 <h1>Purchase of meal <%= @order.meal_sku %></h1>
-<%= form_tag new_order_payment_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-    </label>
-  </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Teddy"
-    data-email="<%= current_user.email %>"
-    data-description="Teddy <%= @order.meal_sku %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="<%= @order.amount.currency %>"></script>
 
-<% end %>
+
+  <%= render 'form' %>
+  <%#= link_to 'Go back', meal_path(@meal) %>
+  <div class="gif">
+    <img src="https://cdn.dribbble.com/users/107759/screenshots/3759297/salad.gif" alt="">
+  </div>
+  <div class="home">
+    <h4>Checkout</h4>
+    <%= link_to meals_path do %>
+
+      <h3><i class="fas fa-credit-card"></i></h3>
+    <% end %>
+  </div>
+
+</div>

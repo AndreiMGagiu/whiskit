@@ -1,7 +1,7 @@
 <h1>Your orders:</h1>
 <ul>
 <% @user.orders.each do |order| %>
-  <li><%= order.meal.name %> <%= link_to '🗑', meal_order_path(params[:meal_id],order.id), method: :delete, data: { confirm: 'Are you sure?' }  %>
+  <li><%= order.meal_id %> <%= link_to '🗑', meal_order_path(params[:meal_id],order.id), method: :delete, data: { confirm: 'Are you sure?' }  %>
   </li>
 <% end %>
 <%= link_to 'Go back', meals_path  %>

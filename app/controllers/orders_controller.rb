@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @meal = Meal.find(params[:meal_id])
+    @meal = Meal.find(@order.meal_id)
   end
 
   def new
@@ -19,10 +19,12 @@ class OrdersController < ApplicationController
     @order = Order.new
     @meal = Meal.find(params[:meal_id])
     # @order.meal = @meal
+    @order.meal_id = @meal.id
+    @order.amount_cents = @meal.price_cents
     @order.user = current_user
     @order.state = "pending"
     if @order.save
-      redirect_to meal_order_path(@meal, @order)
+      redirect_to new_order_payment_path(@order)
     else
       render :new
     end
