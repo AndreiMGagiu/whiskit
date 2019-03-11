@@ -1,56 +1,45 @@
 <div id="open-modal_<%= meal.id %>" class="modal-window">
-  <div>
-     <% unless meal.photo.blank? %>
-    <div class="modalbackimage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo %>')">
-    </div>
+  <div class="modal-div">
+    <% unless meal.photo.blank? %>
+      <div class="modalbackimage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo %>')">
+      </div>
     <% end %>
-    <a href="" title="Close" class="modal-close"> X </a>
-    <div class="df">
+    <a href="" title="Close" class="modal-close"> close </a>
+    <div class="top-half-info">
       <div class="food-title">
-        <h2><%= meal.name %></h2>
+        <h2><%= meal.name %> ~ £<%= meal.price %></h2>
       </div>
-      <div class="avatar-meal-card-modal">
-        <%= image_tag 'jack.png', class: 'avatar'  %>
-        <h3>4.7</h3>
-      </div>
-
+          <div class="avatar-meal-card-modal">
+            <%= image_tag 'jack.png', class: 'avatar'  %>
+            <h3>4.7</h3>
+          </div>
     </div>
-    <div style="padding: 0 20px;">
-      <div class="pick-up-time">
-        <h4> portions remaining : <%= meal.portions %> </h4>
-        <h4>posted at : %></h4>
-      </div>
-      <div class="pick-up-time">
-        <h4> pick-up time :<%= meal.pick_up_start %></h4>
-        <h4> meal ends at :<%= meal.pick_up_end%></h4>
-      </div>
-      <div>
-        <h4> suitable for :</h4>
-        <ul>
-            <% meal.dietary_requirements.each do  |dietary_requirement| %>
-            <li><%= dietary_requirement.categories%></li>
-          <% end%>
-        </ul>
-      </div>
+    <div class="bottom-half">
       <div class="meal-description">
         <p> <%= meal.description %>  </p>
       </div>
+      <div class="suitable-for" style="color: grey;">
+        <h4> suitable for : <% meal.dietary_requirements.each do |dietary_requirement| %> <%= dietary_requirement.categories%>, <% end%> </h4>
+      </div>
+      <hr>
+      <div class="pick-up-time">
         <div>
-          <%= link_to "leave a review", new_meal_review_path(meal), class: 'btn-buy-now'  %>
+          <i class="far fa-clock"></i>
         </div>
-          <div>
-             <%= link_to "buy", new_meal_order_path(meal), class: "btn-buy-now" %>
-          </div>
-          <div>
-            <ul>
-             <% meal.reviews.each do |review|  %> <!-- TEST TEST -->
-             <li><%= review.content %>
-               <%= review.rating %>
-             </li>
-             <% end %>
-            </ul>
-          </div>
-
+        <div>
+        <h3> collect between : <%= meal.pick_up_start.time.to_formatted_s(:short) %>  - <%= meal.pick_up_end.time.to_s(:time) %> </h3>
+        </div>
+      </div>
+      <div class="portions">
+        <div>
+          <i class="fas fa-utensils"></i>
+        </div>
+        <div>
+        <h3>  portions remaining : <%= meal.portions %> </h3>
+        </div>
+      </div>
+      <%= link_to "buy", new_meal_order_path(meal), class: "btn-all" %>
     </div>
   </div>
 </div>
+
