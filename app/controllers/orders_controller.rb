@@ -20,10 +20,11 @@ class OrdersController < ApplicationController
     @meal = Meal.find(params[:meal_id])
     # @order.meal = @meal
     @order.meal_id = @meal.id
-    @order.amount_cents = @meal.price_cents
+    @order.amount_cents = @meal.price_cents * order_params[:portions].to_i
     @order.user = current_user
     @order.state = "pending"
     if @order.save
+      session[:portions_num] = order_params[:portions].to_i
       redirect_to new_order_payment_path(@order)
     else
       render :new
@@ -41,7 +42,7 @@ class OrdersController < ApplicationController
 
   private
 
-  # def order_params
-  #   params.require(:order).permit(:time)
-  # end
+  def order_params
+    params.permit(:portions)
+  end
 end

@@ -10,7 +10,7 @@
 
 .food-title {
   padding-top: 25px;
-  padding-bottom: 12px;
+  padding-bottom: 0px;
 }
 
 .meal-description {
@@ -21,7 +21,7 @@ padding-right: 20px;
 }
 
 .pick-up-time {
-  padding-top: 10px;
+  padding-top: 0px;
   display: flex;
   align-items: center;
 
@@ -40,7 +40,7 @@ padding-right: 20px;
   display: flex;
   align-items: center;
   padding-top: 10px;
-  padding-bottom: 40px;
+  padding-bottom: 5px;
       i {
     font-size: 40px;
     padding-right: 24px;
@@ -103,6 +103,10 @@ padding-right: 20px;
 
 .avatar-meal-card-modal {
   padding-top: 10px;
+    h3 {
+      padding-left: 3px;
+      font-size: 25px;
+    }
 }
 
 .modal-close {
@@ -146,3 +150,7 @@ padding-right: 20px;
   height: 250px;
 }
 
+.buttons-at-bottom {
+  display: flex;
+  padding-right: 20px;
+}
