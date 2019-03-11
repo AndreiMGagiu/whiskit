@@ -33,28 +33,57 @@
       <hr>
     </div>
 
-    <h3 class="saving" style="padding-bottom: 40px;">active meals <span>.</span><span>.</span><span>.</span></h3>
+    <h3 class="saving" style="padding-bottom: 40px;">meals currently live <span>.</span><span>.</span><span>.</span></h3>
 
     <div class="active-meals">
-      <div>
-        user.meal
-      </div>
+      <div style=" padding: 16px; padding-bottom: 16px; display: flex;flex-wrap: wrap;flex-direction:row; justify-content: left;">
 
-          <div class="active-info">
+        <% @meals.each do |meal| %>
+          <% unless meal.photo.blank? %>
+            <div class="meal-cards1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo, height: 300, width: 400, crop: :fill %>'); background-repeat: no-repeat; background-size: cover;">
+              <div class="avatar-meal-card">
+                <%= image_tag 'jack.png', class: 'avatar'  %>
+                <h3>4.7</h3>
+              </div>
+              <div class="card-bottom">
+                  <div class="name-of-food">
+                    <a href="#open-modal_<%= meal.id %>">
+                      <h1><%= meal.name %></h1>
+                    </a>
+
+                    <h1><strong><%= meal.pick_up_start.time.to_formatted_s(:short) %> - <%=meal.pick_up_end.time.to_s(:time)%></strong>
+                  </div>
+                <div class="price-buy-now" style="padding-bottom: 16px;">
+                  <h3>Amount: <%= humanized_money_with_symbol(meal.price)%></h3>
+                  <a href="#open-modal_<%= meal.id %>">
+                    <button class="btn-buy-now" type="button">view</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="active-info">
               <div class="remaing-portions">
                 <p>remaining portions</p>
                   <div class="meal-counter">
-                    <i class="fas fa-utensils"></i><h2>8</h2>
+                    <i class="fas fa-utensils"></i><h2><%= meal.portions %></h2>
                   </div>
               </div>
 
               <div class="time-remaining">
                 <p>time remaining</p>
                   <div class="time-left">
-                    <i class="far fa-clock"></i><h2> 2h</h2>
+                    <i class="far fa-clock"></i><h2> <%= Time.at(meal.pick_up_end.time - Time.now).utc.strftime("%H:%M:%S")  %></h2>
+                    <!-- distance_of_time_in_words(meal.pick_up_start.time - Time.now) -->
                   </div>
               </div>
            </div>
+          <% end %>
+          <%= render 'meals/modal', meal: meal %>
+        <% end %>
+
+      </div>
+
+
       </div>
 
     </div>
