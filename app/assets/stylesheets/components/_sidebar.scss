@@ -6,7 +6,7 @@
   z-index: 2; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #19BB73; /* branded blue */
+  background-color: #FAFAFA; /* branded blue */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 100px;
   padding-bottom: 26px;
@@ -16,7 +16,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .sidenav h2 {
@@ -27,7 +26,7 @@
 }
 
 .sidenav h4 {
-  color: #FFFFFF;
+  color: #212528;
   font-family: 'Open Sans';
   font-weight: lighter;
   font-size: 20px;
@@ -42,7 +41,7 @@
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: #FFFFFF;
+  color: #212528;
   display: block;
 }
 
