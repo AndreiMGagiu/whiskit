@@ -18,11 +18,11 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new
     @meal = Meal.find(params[:meal_id])
-    @order.meal = @meal
+    # @order.meal = @meal
     @order.user = current_user
     @order.state = "pending"
     if @order.save
-      redirect_to meal_order_path(@order.meal_id, @order.id)
+      redirect_to meal_order_path(@meal, @order)
     else
       render :new
     end

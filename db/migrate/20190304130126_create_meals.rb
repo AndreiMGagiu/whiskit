@@ -4,7 +4,6 @@ class CreateMeals < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :description
       t.integer :portions
-      t.integer :price
       t.string :type_of
       t.datetime :pick_up_start
       t.datetime :pick_up_end
