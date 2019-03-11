@@ -1,3 +1,9 @@
 <h1>Congrats you have booked : <%=@meal.name %></h1>
 <%= link_to 'View your orders', meal_orders_path  %>
-
+<h1>Order</h1>
+<ul>
+  <li>Status: <%= @order.state %></li>
+  <li>Item: <%= @order.meal_sku %></li>
+  <li>Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
+  <li><%= link_to "Pay now", new_order_payment_path(params[:id])  %></li>
+<ul>
