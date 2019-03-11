@@ -1,8 +1,31 @@
-<h1>Congrats you have booked : <%=@meal.name %></h1>
-<h1>Your summary:</h1>
-<ul>
-  <li>Status: <%= @order.state %></li>
-  <li>Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
+<div class="containerorder" style="
+  width: 550px;
+  align-content: center;
+  margin: auto;
+  padding-top: 24px;
+  text-align: center;
+  font-weight: lighter;
+">
 
-  <%= link_to 'View your orders', meal_orders_path(@meal)  %>
-<ul>
+  <h1>Thanks for using Whiskit:</h1> <br>
+
+<!--     <h5>Status: <%= @order.state %></h5>
+    <h5>Amount: <%= humanized_money_with_symbol(@order.amount) %></h5> -->
+
+
+  <h4>Pick up your <%=@meal.name %> from:</h4> <br>
+  <h4> @user.address </h4>
+  <div class="gif">
+    <img src="https://cdn.dribbble.com/users/107759/screenshots/3756455/cake.gif" alt="">
+  </div>
+  <h4>Your pick up instructions are.......</h4> <br>
+
+    <%#= link_to 'View your orders', meal_orders_path(@meal)  %>
+
+      <div class="home">
+    <%= link_to root_path do %>
+
+      <h3><i class="fas fa-home"></i></h3>
+    <% end %>
+  </div>
+</div>
