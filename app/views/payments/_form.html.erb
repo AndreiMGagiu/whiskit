@@ -1,15 +1,19 @@
 <div class="container">
   <div class="positioning">
     <div class="form-style">
-      <h3>Are you sure you want to add this meal?</h3>
-      <h1>Purchase of meal <%= @order.meal_sku %></h1>
+      <h1>One more step... <%= @order.meal_sku %></h1>
+      <!-- <h4>Confirm your order details & pay</h4> -->
 
+          <div class="gif">
+            <img src="https://cdn.dribbble.com/users/107759/screenshots/3759297/salad.gif" alt="">
+          </div>
       <%= form_tag order_payments_path(@order) do %>
         <article>
           <label class="amount">
-            <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+            <span>Amount: <strong><%= humanized_money_with_symbol(@order.amount) %></strong> </span>
           </label>
-        </article>
+        </article> <br> <br>
+
 
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
