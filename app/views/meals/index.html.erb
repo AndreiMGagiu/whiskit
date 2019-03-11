@@ -27,15 +27,17 @@
       </div>
     </h3>
   </div>
-  <div class="rightdiv" style="padding-right: 16px;">
-    <h3>Filter</h3>
+  <div class="rightdiv" style="padding-right: 16px; padding-bottom: 7px;">
+    <h3></h3>
     <%= form_tag meals_path, method: :get do%>
       <% @diets.each do |dietary_requirement| %>
+          <!-- <div> -->
             <%= check_box_tag 'dietary_requirement_ids[]', dietary_requirement.id -%>
 
             <%=  dietary_requirement.categories %>
+        <!-- </div> -->
       <% end %>
-      <%= submit_tag "Search", class: "fa-search"%>
+      <%= submit_tag "Search", class: "btn-all"%>
     <% end %>
   </div>
 </div>
