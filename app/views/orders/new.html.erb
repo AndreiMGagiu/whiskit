@@ -1,5 +1,8 @@
 <div class="containerorder">
 
+  <h1>Order Review</h1> <br>
+  <h4>You ordered <(2)> portions of<br> <br>@user.meal</h4> <br>
+  
   <h1>New order-test</h1> <br>
   <h4>Please confirm your order<br> <br>@user.address</h4> <br>
 
@@ -9,8 +12,10 @@
     <img src="https://cdn.dribbble.com/users/107759/screenshots/3759297/salad.gif" alt="">
   </div>
   <div class="home">
+    <h4>Checkout</h4>
     <%= link_to meals_path do %>
-      <h3><i class="fas fa-home"></i></h3>
+
+      <h3><i class="fas fa-credit-card"></i></h3>
     <% end %>
   </div>
 
