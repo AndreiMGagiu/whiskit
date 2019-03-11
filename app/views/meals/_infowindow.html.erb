@@ -1,7 +1,13 @@
+<div>
 <h3><%= user.email %></h3>
 <p><%= user.address %></p>
 
 <p><strong>Food:</strong></p>
-<% @meals.each do |meal| %>
-<li><%= meal.name %></li>
+<% user.meals.each do |meal| %>
+<li>x<%= meal.portions %> <%= meal.name %></li>
+<a href="#open-modal_<%= meal.id %>">
+  <button class="btn-buy-now" type="button">add</button>
+</a>
 <% end %>
+
+</div>
