@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
     @meal = Meal.find(params[:meal_id])
     @order.meal = @meal
     @order.user = current_user
+    @order.state = "pending"
     if @order.save
       redirect_to meal_order_path(@order.meal_id, @order.id)
     else
