@@ -7,18 +7,19 @@
   font-weight: lighter;
 ">
 
-  <h1>Thanks for using Whiskit:</h1> <br>
+  <h1>Hi <%= current_user.email %> Thanks for using Whiskit:</h1> <br>
 
 <!--     <h5>Status: <%= @order.state %></h5>
     <h5>Amount: <%= humanized_money_with_symbol(@order.amount) %></h5> -->
 
 
-  <h4>Pick up your <%=@meal.name %> from:</h4> <br>
-  <h4> @user.address </h4>
+  <h4>Pick up your delicious <%=@meal.name %> from: <%= @meal.pick_up_location %></h4> <br>
   <div class="gif">
     <img src="https://cdn.dribbble.com/users/107759/screenshots/3756455/cake.gif" alt="">
   </div>
-  <h4>Your pick up instructions are.......</h4> <br>
+  <h2>Your pick up instructions are.......</h2> <br>
+   Message from your local whisker:
+   <h4><%= @meal.pick_up_instructions %></h4>
 
     <%#= link_to 'View your orders', meal_orders_path(@meal)  %>
 
