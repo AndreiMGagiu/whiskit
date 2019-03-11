@@ -45,7 +45,7 @@ class MealsController < ApplicationController
     @meal = Meal.new(meal_params)
     @meal.user = current_user
     if @meal.save
-      redirect_to meals_path
+      redirect_to dashboard_path
       params[:post][:dietary_requirement_ids].delete_at(0)
       params[:post][:dietary_requirement_ids].each do |req_id|
         MealDietaryRequirement.create!(dietary_requirement_id: req_id.to_i, meal_id: @meal.id)
