@@ -22,6 +22,9 @@ class PaymentsController < ApplicationController
   )
 
     @order.update(payment: charge.to_json, state: 'paid')
+    @meal = Meal.find(@order.meal_id)
+    @meal.portions -= session[:portions_num]
+    @meal.save
     redirect_to order_path(@order)
   rescue Stripe::CardError => e
     flash[:alert] = e.message

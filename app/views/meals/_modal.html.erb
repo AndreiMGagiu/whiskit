@@ -1,45 +1,64 @@
 <div id="open-modal_<%= meal.id %>" class="modal-window">
   <div class="modal-div">
-    <% unless meal.photo.blank? %>
-      <div class="modalbackimage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo %>')">
-      </div>
-    <% end %>
-    <a href="" title="Close" class="modal-close"> close </a>
-    <div class="top-half-info">
-      <div class="food-title">
-        <h2><%= meal.name %> ~ £<%= meal.price %></h2>
-      </div>
-          <div class="avatar-meal-card-modal">
-            <%= image_tag 'jack.png', class: 'avatar'  %>
-            <h3>4.7</h3>
+        <% unless meal.photo.blank? %>
+          <div class="modalbackimage" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo %>')">
           </div>
+        <% end %>
+        <a href="" title="Close" class="modal-close"> close </a>
+        <div class="top-half-info">
+          <div class="food-title">
+            <h2><%= meal.name %> ~ £<%= meal.price %></h2>
+          </div>
+              <div class="avatar-meal-card-modal">
+                <%= image_tag 'jack.png', class: 'avatar'  %>
+                <h3>4.7</h3>
+              </div>
+        </div>
+        <div class="bottom-half">
+              <div class="pick-up-time">
+                <div>
+                  <i class="far fa-clock"></i>
+                </div>
+                <div>
+                <h3> collect today between : <%= meal.pick_up_start.time.to_s(:time) %>  - <%= meal.pick_up_end.time.to_s(:time) %> </h3>
+                </div>
+              </div>
+              <div class="portions">
+                <div>
+                  <i class="fas fa-utensils"></i>
+                </div>
+                <div>
+                <h3>  portions remaining : <%= meal.portions %> </h3>
+                </div>
+              </div>
+              <hr>
+              <div class="meal-description">
+                <p> <%= meal.description %>  </p>
+              </div>
+              <div class="suitable-for" style="color: grey;">
+                <h4> suitable for : <% meal.dietary_requirements.each do |dietary_requirement| %> <%= dietary_requirement.categories%> <% end%> </h4>
+              </div>
+              <div class="buttons-at-bottom">
+                  <div>
+                    <div class="form-group">
+                      <%= form_tag meal_orders_path(meal), method: :post do %>
+                        <%= select_tag "portions", options_for_select((1..(meal.portions)).to_a, 1)  %>
+                        <%= submit_tag 'buy', class: "btn-all" %>
+                      <% end %>
+                      <!-- <select class="form-control" id="exampleFormControlSelect1">
+
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select> -->
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
     </div>
-    <div class="bottom-half">
-      <div class="meal-description">
-        <p> <%= meal.description %>  </p>
-      </div>
-      <div class="suitable-for" style="color: grey;">
-        <h4> suitable for : <% meal.dietary_requirements.each do |dietary_requirement| %> <%= dietary_requirement.categories%> <% end%> </h4>
-      </div>
-      <hr>
-      <div class="pick-up-time">
-        <div>
-          <i class="far fa-clock"></i>
-        </div>
-        <div>
-        <h3> collect between : <%= meal.pick_up_start %>  - <%= meal.pick_up_end %> </h3>
-        </div>
-      </div>
-      <div class="portions">
-        <div>
-          <i class="fas fa-utensils"></i>
-        </div>
-        <div>
-        <h3>  portions remaining : <%= meal.portions %> </h3>
-        </div>
-      </div>
-      <%= link_to "buy", meal_orders_path(meal), method: :post, class: "btn-all" %>
-    </div>
-  </div>
-</div>
+
+
 
