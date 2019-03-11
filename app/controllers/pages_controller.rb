@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @meal = Meal.last
+    @meals = Meal.where(user: current_user)
   end
 end
