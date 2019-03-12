@@ -1,7 +1,14 @@
 import mapboxgl from 'mapbox-gl';
+// import MapboxDirections from '@mapbox/mapbox-gl-directions';
 // import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 const mapElement = document.getElementById('map');
+
+// var directions = new MapboxDirections({
+//   accessToken: 'ENV[MAPBOX_API_KEY]',
+//   unit: 'metric',
+//   profile: 'mapbox/cycling'
+// });
 
 const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -13,14 +20,12 @@ const buildMap = () => {
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
-
     const element = document.createElement('div');
     element.className = 'marker';
     element.style.backgroundImage = `url('${marker.image_url}')`;
     element.style.backgroundSize = 'contain';
-    element.style.width = '25px';
-    element.style.height = '25px';
-
+    element.style.width = '40px';
+    element.style.height = '40px';
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(marker.infoWindow))

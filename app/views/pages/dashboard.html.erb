@@ -42,7 +42,7 @@
           <% unless meal.photo.blank? %>
             <div class="meal-cards1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo, height: 300, width: 400, crop: :fill %>'); background-repeat: no-repeat; background-size: cover;">
               <div class="avatar-meal-card">
-                <%= image_tag 'jack.png', class: 'avatar'  %>
+                <%= cl_image_tag meal.user.photo.url(:bright_face), class: 'avatar'  %>
                 <h3>4.7</h3>
               </div>
               <div class="card-bottom">
