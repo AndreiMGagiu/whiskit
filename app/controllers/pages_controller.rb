@@ -6,6 +6,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @meals = Meal.where(user: current_user)
-    @user_orders = Order.where(user: current_user)
+    @user_orders = Order.where(user: current_user).order(created_at: :desc)
   end
 end
