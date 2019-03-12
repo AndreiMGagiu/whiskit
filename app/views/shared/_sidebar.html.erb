@@ -1,9 +1,10 @@
 <!-- Side navigation -->
 <div class="sidenav">
   <!-- <h2>dashboard</h2> -->
-  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-larger" %>
+
+  <%= cl_image_tag current_user.photo.url(:bright_face), class: "avatar-larger" %>
   <!-- <i class="fas fa-pencil-alt" style="color: white;"></i> -->
-  <h4>Borris Bagins</h4>
+  <h4><%= current_user.email %></h4>
   <!-- <a href=""><h4>─────────</h4></a> -->
   <a href="#"><i class="icons fas fa-cogs"></i></a>
   <a href="#"><i class="icons fas fa-envelope"></i></a>
