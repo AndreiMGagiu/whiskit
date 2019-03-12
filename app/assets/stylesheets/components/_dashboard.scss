@@ -126,6 +126,20 @@
 
 }
 
+.grid-order {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.grid-order > span {
+    padding: 8px 4px;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+
+}
+
 //////////////////////////////////////////////////////
 
 @keyframes blink {
