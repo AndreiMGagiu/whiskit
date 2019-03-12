@@ -89,11 +89,11 @@
            <div>
              <h3 class="saving" style="padding-bottom: 20px;"> order history</h3>
            </div>
-           <div class="grid-order">
-              <span><strong>Id</strong></span>
-              <span><strong>ordered at</strong></span>
+             <div class="grid-order">
+              <span><strong>order Id</strong></span>
+              <span style="padding-right: 100px;"><strong>ordered at</strong></span>
               <span><strong>price</strong></span>
-              <span style="padding-right: 300px;"><strong>meal</strong></span>
+              <span style="padding-right: 200px;"><strong>meal</strong></span>
               <span><strong>location</strong></span>
               <span><strong>status</strong></span>
               <span><strong>leave review</strong></span>
@@ -101,19 +101,27 @@
               <% @user_orders.each do |order| %>
               <span><%= order.id %></span>
               <span><%= order.created_at.strftime("%b %-d, %-l.%M%P") %></span>
+              <span> £<%= order.meal.price %></span>
               <span><%= order.meal.name %></span>
-              <span><%= order.meal.name %></span>
-              <span><%= order.meal.pick_up_location %></span>
-              <span> </span>
-              <span> <a href=""><i class="far fa-edit"></i></a> </span>
-              <span> <a href=""><i class="fas fa-ellipsis-h"></i></a></span>
 
+              <span><%= order.meal.pick_up_location %></span>
+              <span>
+                <% if (order.meal.pick_up_end - Time.now) >= 0 %>
+                  <h4 class="saving" style="color: green; padding: none;">Need to collect <span>.</span><span>.</span><span>.</span></h4>
+                <% else %>
+                  <p>Order complete!</p>
+                <% end %>
+              </span>
+              <span>
+                 <% if (order.meal.pick_up_end - Time.now) >= 0 %>
+                  <p> - </p>
+                <% else %>
+                  <a href=""><i class="far fa-edit"></i></a>
+                <% end %>
+                </span>
+              <span> <a href=""><i class="fas fa-ellipsis-h"></i></a></span>
               <% end %>
            </div>
-
-
-
-
     </div>
   </div>
 <br>
@@ -130,4 +138,5 @@
 <br>
 <br>
 </div>
+
 
