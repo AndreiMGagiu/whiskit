@@ -14,10 +14,10 @@ class MealsController < ApplicationController
     marker2 = nil
     # querying users that have at least 1 meal
     if params[:query].present?
-      @users = User.near(params[:query], 1).joins(:meals).group('users.id').where.not(latitude: nil, longitude: nil)
+      @users = User.near(params[:query], 10).joins(:meals).group('users.id').where.not(latitude: nil, longitude: nil)
       results = Geocoder.search(params[:query])
 
-      marker2 = { lat: results.first.coordinates.first, lng: results.first.coordinates.last, image_url: helpers.asset_url('jack.png')}
+      marker2 = { lat: results.first.coordinates.first, lng: results.first.coordinates.last, image_url: helpers.asset_url('icon2.png')}
 
     else
       @users = User.joins(:meals).group('users.id').where.not(latitude: nil, longitude: nil)
@@ -28,11 +28,10 @@ class MealsController < ApplicationController
         lng: user.longitude,
         lat: user.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { user: user }),
-        image_url: helpers.asset_url('whiskit_logo.png')
+        image_url: helpers.asset_url('whiskit_logo.png'),
       }
     end
     @markers << marker2 if marker2
-
   end
 
   def show
