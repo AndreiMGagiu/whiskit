@@ -16,6 +16,7 @@ class MealsController < ApplicationController
     if params[:query].present?
       @users = User.near(params[:query], 1).joins(:meals).group('users.id').where.not(latitude: nil, longitude: nil)
       results = Geocoder.search(params[:query])
+
       marker2 = { lat: results.first.coordinates.first, lng: results.first.coordinates.last, image_url: helpers.asset_url('jack.png')}
 
     else
