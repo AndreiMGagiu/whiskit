@@ -56,26 +56,25 @@
     <% @meals.each do |meal| %>
       <% unless meal.photo.blank? %>
         <div class="meal-cards1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo, height: 300, width: 400, crop: :fill %>'); background-repeat: no-repeat; background-size: cover;">
-          <div class="avatar-meal-card">
-            <%= cl_image_tag meal.user.photo.url(:bright_face), class: 'avatar'  %>
-            <h3>4.7</h3>
-          </div>
-          <div class="card-bottom">
-              <div class="name-of-food">
-                <a href="#open-modal_<%= meal.id %>">
-                  <h1><%= meal.name %></h1>
-                </a>
-
-                <h1><strong><%= meal.pick_up_start.strftime("%I:%M%p") %> <%=meal.pick_up_end%></strong>
+              <div class="avatar-meal-card">
+                <%= cl_image_tag meal.user.photo.url(:bright_face), class: 'avatar'  %>
+                <h3>4.7</h3>
               </div>
-            <div class="price-buy-now" style="padding-bottom: 16px;">
-              <h3>Amount: <%= humanized_money_with_symbol(meal.price)%></h3>
-              <a href="#open-modal_<%= meal.id %>">
-                <button class="btn-buy-now" type="button">buy</button>
-              </a>
+              <div class="card-bottom">
+                <div class="name-of-food">
+                  <a href="#open-modal_<%= meal.id %>">
+                    <h1><%= meal.name %></h1>
+                  </a>
+                  <h1><strong><%= meal.pick_up_start.time.strftime("%H:%M") %> - <%=meal.pick_up_end.time.strftime("%H:%M")%></strong></h1>
+                </div>
+                <div class="price-buy-now" style="padding-bottom: 16px;">
+                  <h3><%= humanized_money_with_symbol(meal.price)%></h3>
+                  <a href="#open-modal_<%= meal.id %>">
+                    <button class="btn-buy-now" type="button">buy</button>
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
       <% end %>
       <%= render 'modal', meal: meal %>
     <% end %>
