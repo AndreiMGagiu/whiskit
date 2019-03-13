@@ -14,7 +14,7 @@ class MealsController < ApplicationController
     marker2 = nil
     # querying users that have at least 1 meal
     if params[:query].present?
-      @users = User.near(params[:query], 10).joins(:meals).group('users.id').where.not(latitude: nil, longitude: nil)
+      @users = User.near(params[:query], 20).joins(:meals).group('users.id').where.not(latitude: nil, longitude: nil)
       results = Geocoder.search(params[:query])
 
       marker2 = { lat: results.first.coordinates.first, lng: results.first.coordinates.last, image_url: helpers.asset_url('icon2.png')}
@@ -66,7 +66,7 @@ class MealsController < ApplicationController
     end
     respond_to do |format|
       if @meal.update(meal_params)
-        format.html { redirect_to meal_path(@meal), notice: 'Congratulations your meal has been succesfully updated'}
+        format.html { redirect_to dashboard_path, notice: 'Congratulations your meal has been succesfully updated'}
       else
         render :edit
         format.html { render :edit }

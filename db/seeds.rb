@@ -1,6 +1,6 @@
 DietaryRequirement.destroy_all
-categories = ['vegan' ,  'vegetarian', 'contains nuts', 'contains diary',
-      'halal', 'gluten free']
+categories = ['vegans' ,  'vegetarians', 'nut allergies', 'lactose intolerant',
+      'halal', 'celiacs']
 categories.each do |category|
   DietaryRequirement.create!(categories: category)
 end
