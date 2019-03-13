@@ -50,11 +50,17 @@
   opacity: 0.5;
 }
 
-
 .dropdown-button:focus {
   box-shadow: none;
 }
 
-.add-meal-button-small:hover {
+.create-meal-btn {
+  border-radius: 15px;
+  background-color: white;
+}
+
+.create-meal-btn:hover {
   text-decoration: none;
+  transition: 0.5s;
+  background-color: #19BB73;
 }
