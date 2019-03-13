@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[email address photo first_name surname])
     devise_parameter_sanitizer.permit(:account_update, keys: %i[email address photo first_name surname])
   end
+
+  def default_url_options
+    { host: ENV["www.whiskit.club"] || "localhost:3000" }
+  end
 end
