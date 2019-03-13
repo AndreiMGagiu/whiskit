@@ -10,7 +10,7 @@
             <h2><%= meal.name %> ~ £<%= meal.price %></h2>
           </div>
               <div class="avatar-meal-card-modal">
-                <%= image_tag 'jack.png', class: 'avatar'  %>
+                <%= cl_image_tag meal.user.photo.url(:bright_face), class: 'avatar'  %>
                 <h3>4.7</h3>
               </div>
         </div>
@@ -36,14 +36,17 @@
                 <p> <%= meal.description %>  </p>
               </div>
               <div class="suitable-for" style="color: grey;">
-                <h4> suitable for : <% meal.dietary_requirements.each do |dietary_requirement| %> <%= dietary_requirement.categories%> <% end%> </h4>
+                <h4> suitable for : <% meal.dietary_requirements.each do |dietary_requirement| %> <%= dietary_requirement.categories%> ~<% end%> </h4>
               </div>
               <div class="buttons-at-bottom">
+                <div>
+                  <h3 style="padding-right: 10px; padding-top: 5px;">portions</h3>
+                </div>
                   <div>
                     <div class="form-group">
                       <%= form_tag meal_orders_path(meal), method: :post do %>
                         <%= select_tag "portions", options_for_select((1..(meal.portions)).to_a, 1)  %>
-                        <%= submit_tag 'buy', class: "btn-all" %>
+                        <%= submit_tag 'BUY', class: "btn-all" %>
                       <% end %>
                       <!-- <select class="form-control" id="exampleFormControlSelect1">
 
