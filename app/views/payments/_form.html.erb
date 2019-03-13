@@ -1,18 +1,21 @@
 <div class="container">
   <div class="positioning">
     <div class="form-style">
-      <h1>One more step... <%= @order.meal_sku %></h1>
-      <!-- <h4>Confirm your order details & pay</h4> -->
+      <h3 style="padding-top: 70px; padding-bottom: 20px;"> You are about to order...</h3>
+      <h2>
+        <%= @order.meal.name %> x <%= (@order.amount / @order.meal.price).to_i  %>
+      </h2>
+      <p style="padding-top: 20px; font-size: 20px; padding-bottom: 15px;">from</p>
+      <h3 style="padding-bottom: 30px; "> <%= @order.meal.pick_up_location %></h3>
 
-          <div class="gif">
-            <img src="https://cdn.dribbble.com/users/107759/screenshots/3759297/salad.gif" alt="">
-          </div>
       <%= form_tag order_payments_path(@order) do %>
+      <hr style="width: 400px;">
         <article>
-          <label class="amount">
-            <span>Amount: <strong><%= humanized_money_with_symbol(@order.amount) %></strong> </span>
+          <label class="amount" style="padding-top: 30px;">
+            <span><h3>Amount to pay:      <%= humanized_money_with_symbol(@order.amount)%></h3></span>
           </label>
-        </article> <br> <br>
+        </article>
+
 
 
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -25,6 +28,14 @@
 
       <% end %>
 
+
+
+      <div class="gif">
+            <img src="https://cdn.dribbble.com/users/107759/screenshots/3759297/salad.gif" alt="">
+          </div>
+
   <!--  </div -->
   </div>
 </div>
+</div>
+
