@@ -27,8 +27,8 @@ class MealsController < ApplicationController
       {
         lng: user.longitude,
         lat: user.latitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { user: user }),
-        image_url: helpers.asset_url('whiskit_logo.png'),
+          infoWindow: render_to_string(partial: "infowindow", locals: { user: user }),
+        image_url: helpers.asset_url('newpin.png')
       }
     end
     @markers << marker2 if marker2

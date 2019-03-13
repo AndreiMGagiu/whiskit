@@ -1,17 +1,4 @@
-<!-- <div>
-<h3><%= user.email %></h3>
-<p><%= user.address %></p>
 
-<p><strong>Food:</strong></p>
-<% user.meals.each do |meal| %>
-<li>x<%= meal.portions %> <%= meal.name %></li>
-<a href="#open-modal_<%= meal.id %>">
-  <button class="btn-buy-now" type="button">add</button>
-</a>
-<% end %>
-
-</div>
- -->
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
   <% user.meals.each do |meal| %>
     <p><%= meal.name  %></p>
