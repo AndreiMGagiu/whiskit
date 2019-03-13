@@ -49,7 +49,7 @@
                   <a href="#open-modal_<%= meal.id %>">
                     <h1><%= meal.name %></h1>
                   </a>
-                  <h1><strong><%= meal.pick_up_start.time.to_formatted_s(:short) %> - <%=meal.pick_up_end.time.to_s(:time)%></strong></h1>
+                  <h1><strong><%= meal.pick_up_start.time.strftime("%I:%M %P") %> - <%=meal.pick_up_end.time.strftime("%I:%M %P")%></strong></h1>
                 </div>
                 <div class="price-buy-now" style="padding-bottom: 16px;">
                   <h3>Amount: <%= humanized_money_with_symbol(meal.price)%></h3>
@@ -82,30 +82,30 @@
         <%= render 'meals/modal', meal: meal %>
       <% end %>
     </div>
-
-      <hr style="padding-bottom: 30px;">
+<br>
+      <hr style="padding-bottom: 30px; ">
            <div>
              <h3 class="saving" style="padding-bottom: 20px;"> order history</h3>
            </div>
              <div class="grid-order">
-              <span><strong>order Id</strong></span>
-              <span style="padding-right: 100px;"><strong>ordered at</strong></span>
-              <span><strong>price</strong></span>
-              <span style="padding-right: 200px;"><strong>meal</strong></span>
-              <span><strong>location</strong></span>
-              <span><strong>status</strong></span>
-              <span><strong>leave review</strong></span>
-              <span><strong><i class="fas fa-ellipsis-h"></i></strong></span>
+              <span><h4>order Id</h4></span>
+              <span><h4>ordered at</h4></span>
+              <span><h4>price</h4></span>
+              <span><h4>meal</h4></span>
+              <span><h4>location</h4></span>
+              <span><h4>status</h4></span>
+              <span><h4>leave review</h4></span>
+              <span><h4><i class="fas fa-ellipsis-h"></i></h4></span>
               <% @user_orders.each do |order| %>
-              <span><%= order.id %></span>
-              <span><%= order.created_at.strftime("%b %-d, %-l.%M%P") %></span>
-              <span> £<%= order.meal.price %></span>
-              <span><%= order.meal.name %></span>
+              <span><p><%= order.id %></p></span>
+              <span><p><%= order.created_at.strftime("%b %-d, %-l.%M%P") %></p></span>
+              <span><p> £<%= order.meal.price %></p></span>
+              <span><p><%= order.meal.name %></p></span>
 
-              <span><%= order.meal.pick_up_location %></span>
+              <span><p><%= order.meal.pick_up_location %></p></span>
               <span>
                 <% if (order.meal.pick_up_end - Time.now) >= 0 %>
-                  <h4 class="saving" style="color: green; padding: none;">Need to collect <span>.</span><span>.</span><span>.</span></h4>
+                  <p class="saving" style="color: green;">Need to collect <span>.</span><span>.</span><span>.</span></p>
                 <% else %>
                   <p>Order complete!</p>
                 <% end %>
@@ -130,5 +130,6 @@
 <br>
 <br>
 </div>
+
 
 
