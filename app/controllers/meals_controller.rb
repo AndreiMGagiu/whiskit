@@ -66,7 +66,7 @@ class MealsController < ApplicationController
     end
     respond_to do |format|
       if @meal.update(meal_params)
-        format.html { redirect_to meal_path(@meal), notice: 'Congratulations your meal has been succesfully updated'}
+        format.html { redirect_to dashboard_path, notice: 'Congratulations your meal has been succesfully updated'}
       else
         render :edit
         format.html { render :edit }
