@@ -1,11 +1,10 @@
 <!-- Side navigation -->
 <div class="sidenav">
+
+
+  <h3><%= current_user.email %>'s dashboard</h3>
   <!-- <h2>dashboard</h2> -->
-  <% if current_user.first_name == ""%>
   <h3>Dashboard</h3>
-  <% else %>
-  <h3><%= current_user.first_name %>'s dashboard</h3>
-  <% end %>
 
   <%= cl_image_tag current_user.photo.url(:bright_face), class: "avatar-larger" %>
   <!-- <i class="fas fa-pencil-alt" style="color: white;"></i> -->
