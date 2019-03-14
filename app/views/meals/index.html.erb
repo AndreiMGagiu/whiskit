@@ -50,11 +50,10 @@
   </div>
 </div>
 <div>
-  <!--   <hr style="width: 200px">   <!-- THIS -->
 
   <div class="container1" style="padding-top: 0px !important;">
 
-    <div style="width: 70%; padding: 16px; padding-bottom: 16px; display: flex;flex-wrap: wrap;flex-direction:row; justify-content: left;">
+    <div style="width: 61%; padding: 16px; padding-bottom: 16px; display: flex;flex-wrap: wrap;flex-direction:row; justify-content: left;">
       <% @meals.each do |meal| %>
         <% unless meal.photo.blank? %>
           <div class="meal-cards1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo, height: 300, width: 400, crop: :fill %>'); background-repeat: no-repeat; background-size: cover;">
@@ -83,7 +82,7 @@
     </div>
     <div
       class="map-position" id="map"
-      style="width: 30%;
+      style="width: 39%;
       height: 84vh;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"

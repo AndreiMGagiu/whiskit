@@ -1,8 +1,10 @@
 <!-- Side navigation -->
 <div class="sidenav">
-  <!-- <h2>dashboard</h2> -->
+
 
   <h3><%= current_user.email %>'s dashboard</h3>
+  <!-- <h2>dashboard</h2> -->
+  <h3>Dashboard</h3>
 
   <%= cl_image_tag current_user.photo.url(:bright_face), class: "avatar-larger" %>
   <!-- <i class="fas fa-pencil-alt" style="color: white;"></i> -->
