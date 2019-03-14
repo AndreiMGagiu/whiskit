@@ -1,5 +1,5 @@
   import places from 'places.js';
-const initAutocomplete = () => {
+const initForm = () => {
   const  appId = 'plMXSFG9TCAA'
   const apiKey = 'a9946d0af2d57828a56072c3ba91435f'
   const addressInput = document.getElementById('query');
@@ -11,4 +11,4 @@ const initAutocomplete = () => {
   }
 };
 
-export { initAutocomplete };
+export { initForm };
