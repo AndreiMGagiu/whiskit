@@ -1,25 +1,18 @@
-<div class="containerorder" style="
-  width: 550px;
-  align-content: center;
-  margin: auto;
-  padding-top: 24px;
-  text-align: center;
-  font-weight: lighter;
-">
+<div class="containerorder">
 
-  <h1 style="font-size: 35px;">Hi <%= current_user.first_name %> Thanks for using Whiskit:</h1> <br>
+  <h1>Hi <%= current_user.first_name %> Thanks for using Whiskit:</h1> <br>
 
 <!--     <h5>Status: <%= @order.state %></h5>
     <h5>Amount: <%= humanized_money_with_symbol(@order.amount) %></h5> -->
 
 
-  <h4>Pick up your delicious <%=@meal.name %> from: <%= @meal.pick_up_location %></h4> <br>
+  <h4>Pick up your delicious <%=@meal.name %> from: <br> <%= @meal.pick_up_location %></h4> <br>
+  <h4>Your pick up instructions are: </h4><br>
+  <h4><%= @meal.pick_up_instructions %></h4>
   <div class="gif">
     <img src="https://cdn.dribbble.com/users/107759/screenshots/3756455/cake.gif" alt="">
   </div>
-  <h2 style="font-size:20px;">Your pick up instructions are: </h2><br>
 
-   <h4><%= @meal.pick_up_instructions %></h4>
 
     <%#= link_to 'View your orders', meal_orders_path(@meal)  %>
 

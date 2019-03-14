@@ -1,16 +1,25 @@
 .containerorder {
   text-align: center;
   padding-top: 16px;
-  height: 80vh;
+  height: 60vh;
+  align-content: center;
+  margin: auto;
+  padding-top: 24px;
+  text-align: center;
+  font-weight: lighter;
   h4 {
     font-weight: lighter;
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 2rem;
   }
 }
 
 .home {
   padding-top: 88px;
   h3 {
-    font-size: 40px;
+    font-size: 2.5rem;
     color: #D0D0D0;
   }
   h3:hover {
@@ -20,7 +29,7 @@
 
 .gif {
   img {
-    width: 400px;
-    height: 400px;
+    width: 250px;
+    height: 250px;
   }
 }
