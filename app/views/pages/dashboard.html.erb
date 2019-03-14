@@ -14,22 +14,22 @@
 
       <div class="total-earnings item">
         <h3>today's earnings</h3>
-        <i class="fas fa-coins icon-3x"></i><h2>£<%= @amount_earned %> </h2>
+        <i class="fas fa-coins icon-3x"></i><h2 class="small-h2">£<%= @amount_earned %> </h2>
       </div>
 
       <div class="cook-book item">
         <h3>cookbook</h3>
-       <i class="fas fa-book icon-3x"></i> <h2>9</h2>
+       <i class="fas fa-book icon-3x"></i> <h2 class="small-h2">9</h2>
       </div>
 
       <div class="reviews item">
         <h3>reviews</h3>
-        <i class="fas fa-pencil-alt icon-3x"></i> <h2>14</h2>
+        <i class="fas fa-pencil-alt icon-3x"></i> <h2 class="small-h2">14</h2>
       </div>
 
     </div>
 
-    <div style="padding-top: 15px; padding-bottom: 30px">
+    <div style="padding-top: 15px">
       <hr>
     </div>
 
@@ -47,9 +47,9 @@
               <div class="card-bottom">
                 <div class="name-of-food">
                   <a href="#open-modal_<%= meal.id %>">
-                    <h1><%= meal.name %></h1>
+                    <h1 class="no-margin"><%= meal.name %></h1>
                   </a>
-                  <h1><strong><%= meal.pick_up_start.time.strftime("%H:%M") %> - <%=meal.pick_up_end.time.strftime("%H:%M")%></strong></h1>
+                  <h1 class="no-margin"><strong><%= meal.pick_up_start.time.strftime("%H:%M") %> - <%=meal.pick_up_end.time.strftime("%H:%M")%></strong></h1>
                 </div>
                 <div class="price-buy-now" style="padding-bottom: 16px;">
                   <h3><%= humanized_money_with_symbol(meal.price)%></h3>
@@ -61,7 +61,7 @@
             </div>
             <div class="active-info">
               <div class="remaing-portions">
-                <p>remaining portions</p>
+                <p style="white-space: nowrap">remaining portions</p>
                 <div class="meal-counter">
                   <i class="fas fa-utensils"></i><h2><%= meal.portions %></h2>
                 </div>
@@ -73,7 +73,7 @@
                 <!-- distance_of_time_in_words(meal.pick_up_start.time - Time.now) -->
                 </div>
               </div>
-              <div style="padding-right: 30px;">
+              <div >
                 <%= link_to 'edit', edit_meal_path(meal),class: 'btn btn-success add-meal-button'  %>
               </div>
             </div>
