@@ -1,24 +1,20 @@
 <div class="containerorder">
 
-  <h1>Hi <%= current_user.first_name %> Thanks for using Whiskit:</h1> <br>
+  <h1>Hi <%= current_user.first_name %> your meal is confirmed!</h1> <br>
 
 <!--     <h5>Status: <%= @order.state %></h5>
     <h5>Amount: <%= humanized_money_with_symbol(@order.amount) %></h5> -->
 
 
-  <h4>Pick up your delicious <%=@meal.name %> from: <br> <%= @meal.pick_up_location %></h4> <br>
-  <h4>Your pick up instructions are: </h4><br>
-  <h4><%= @meal.pick_up_instructions %></h4>
+  <h4>Pick up your delicious <%=@meal.name %> from: <br><br> <strong> <%= @meal.pick_up_location %></strong></h4> <br>
+  <h4>Your pick up instructions are; </h4>
+  <h4><strong><%= @meal.pick_up_instructions %></strong></h4>
   <div class="gif">
     <img src="https://cdn.dribbble.com/users/107759/screenshots/3756455/cake.gif" alt="">
   </div>
 
-
-    <%#= link_to 'View your orders', meal_orders_path(@meal)  %>
-
       <div class="home">
-    <%= link_to root_path do %>
-
+      <%= link_to root_path do %>
       <h3><i class="fas fa-home"></i></h3>
     <% end %>
   </div>

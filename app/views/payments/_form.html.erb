@@ -1,17 +1,15 @@
 <div class="container">
   <div class="positioning">
     <div class="form-style">
-      <h3 style="padding-top: 70px; padding-bottom: 20px;"> You are about to order...</h3>
+      <h3 style="padding-top: 10px; padding-bottom: 20px;"> You are about to order...</h3>
       <h2>
         <%= @order.meal.name %> x <%= (@order.amount / @order.meal.price).to_i  %>
       </h2>
-      <p style="padding-top: 20px; font-size: 20px; padding-bottom: 15px;">from</p>
-      <h3 style="padding-bottom: 30px; "> <%= @order.meal.pick_up_location %></h3>
 
       <%= form_tag order_payments_path(@order) do %>
 
         <article>
-          <label class="amount" style="padding-top: 30px;">
+          <label class="amount" style="padding-top: 18px;">
             <span><h3>Amount to pay:      <%= humanized_money_with_symbol(@order.amount)%></h3></span>
           </label>
         </article>
