@@ -11,13 +11,15 @@
   padding-left: 15px;
 }
 
+#MAP{
+  position: fixed;
+}
 
 .map-position {
   padding-right: 0px;
   height: 100vh;
-  position: fixed;
-  position: sticky;
   right: 0;
+  position:fixed;
 }
 
 // card css
@@ -133,15 +135,3 @@
   }
 }
 
-// .ap-input {
-//   padding-right: 0;
-//   padding-left: 0;
-//   border-bottom: 1px solid rgba(0,0,0,0.1);
-// }
-
-// .ap-input::placeholder {
-//   font: initial;
-//   font-weight:lighter;
-//   font-family: montserrat;
-//   font-size: 20px;
-// }
