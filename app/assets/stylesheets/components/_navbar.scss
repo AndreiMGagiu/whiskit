@@ -20,6 +20,10 @@
 .dropdown-menu .dropdown-menu-right .show{
   z-index: 99999999 !important;
 }
+.dropdown-menu {
+    left: -50px !important;
+    width: 250px;
+}
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
@@ -63,4 +67,8 @@
 
 .buttonadd:hover {
   box-shadow: 5px;
+}
+
+.dropdown-padding {
+  padding-left: 20px
 }

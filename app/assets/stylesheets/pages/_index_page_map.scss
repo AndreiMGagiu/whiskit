@@ -134,3 +134,16 @@
     color: white;
   }
 }
+
+.ap-input {
+  padding-right: 0;
+  padding-left: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.ap-input::placeholder {
+  font: initial;
+  font-weight:bold;
+  font-family: montserrat;
+  font-size: 20px;
+}

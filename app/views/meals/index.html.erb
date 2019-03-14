@@ -14,14 +14,11 @@
     <h3>
       <div>
         <%= form_tag meals_path, method: :get do %>
-        <button class="search-button" type="submit">
+  <!--       <button class="search-button" type="submit">
           <i class="fa fa-search"></i>
-        </button>
+        </button> -->
         <!-- Search bar -->
-        <%= text_field_tag :query,
-        '',
-        placeholder: "Find food near you?", class: "index-search" %>
-
+        <input type="text" name="query" id="query" value="" placeholder="Find food near you?" class="index-search ap-input" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="both" aria-expanded="false" aria-owns="algolia-places-listbox-0" dir="auto" style="position: relative; vertical-align: top;">
         <% end %>
         <!-- Search bar -->
       </div>
@@ -34,58 +31,65 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <%= form_tag meals_path, method: :get do%>
-    <div style="display: flex; flex-direction: column; padding: 16px;">
-      <% @diets.each do |dietary_requirement| %>
-          <div style="padding-bottom: 16px;">
-            <%= check_box_tag 'dietary_requirement_ids[]', dietary_requirement.id -%>
-
-            <%=  dietary_requirement.categories %>
-        </div>
-      <% end %>
-      <%= submit_tag "Search", class: "btn-all"%>
-    <% end %>
+      <div style="display: flex; flex-direction: column; padding: 16px;">
+        <% @diets.each do |dietary_requirement| %>
+            <div class="category-choice">
+            <input type="checkbox" class="hidden" value="<%= dietary_requirement.id %>" name="post[dietary_requirement_ids][]" id="post_dietary_requirement_ids_<%= dietary_requirement.id %>">
+            <label for="post_dietary_requirement_ids_<%= dietary_requirement.id %>">
+              <%= dietary_requirement.categories %>
+              <!-- <i class="fa fa-check"></i> -->
+            </label>
+          </div>
+        <% end %>
+        <%= submit_tag "Search", class: "btn-all"%>
       </div>
-
-  </div>
-</div>
-  </div>
-</div>
-
-<div class="container1" style="padding-top: 0px !important;">
-  <div style="width: 70%; padding: 16px; padding-bottom: 16px; display: flex;flex-wrap: wrap;flex-direction:row; justify-content: left;">
-    <% @meals.each do |meal| %>
-      <% unless meal.photo.blank? %>
-        <div class="meal-cards1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo, height: 300, width: 400, crop: :fill %>'); background-repeat: no-repeat; background-size: cover;">
-              <div class="avatar-meal-card">
-                <%= cl_image_tag meal.user.photo.url(:bright_face), class: 'avatar'  %>
-                <h3>4.7</h3>
-              </div>
-              <div class="card-bottom">
-                <div class="name-of-food">
-                  <a href="#open-modal_<%= meal.id %>">
-                    <h1><%= meal.name %></h1>
-                  </a>
-                  <h1><strong><%= meal.pick_up_start.time.strftime("%H:%M") %> - <%=meal.pick_up_end.time.strftime("%H:%M")%></strong></h1>
-                </div>
-                <div class="price-buy-now" style="padding-bottom: 16px;">
-                  <h3><%= humanized_money_with_symbol(meal.price)%></h3>
-                  <a href="#open-modal_<%= meal.id %>">
-                    <button class="btn-buy-now" type="button">buy</button>
-                  </a>
-                </div>
-              </div>
-            </div>
-      <% end %>
-      <%= render 'modal', meal: meal %>
     <% end %>
   </div>
-  <div
-    class="map-position" id="map"
-    style="width: 30%;
-    height: 84vh;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
 </div>
+
+  </div>
+</div>
+<div>
+  <!--   <hr style="width: 200px">   <!-- THIS -->
+
+  <div class="container1" style="padding-top: 0px !important;">
+
+    <div style="width: 70%; padding: 16px; padding-bottom: 16px; display: flex;flex-wrap: wrap;flex-direction:row; justify-content: left;">
+      <% @meals.each do |meal| %>
+        <% unless meal.photo.blank? %>
+          <div class="meal-cards1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path meal.photo, height: 300, width: 400, crop: :fill %>'); background-repeat: no-repeat; background-size: cover;">
+                <div class="avatar-meal-card">
+                  <%= cl_image_tag meal.user.photo.url(:bright_face), class: 'avatar'  %>
+                  <h3>4.7</h3>
+                </div>
+                <div class="card-bottom">
+                  <div class="name-of-food">
+                    <a href="#open-modal_<%= meal.id %>">
+                      <h1><%= meal.name %></h1>
+                    </a>
+                    <h1><strong><%= meal.pick_up_start.time.strftime("%H:%M") %> - <%=meal.pick_up_end.time.strftime("%H:%M")%></strong></h1>
+                  </div>
+                  <div class="price-buy-now" style="padding-bottom: 16px;">
+                    <h3><%= humanized_money_with_symbol(meal.price)%></h3>
+                    <a href="#open-modal_<%= meal.id %>">
+                      <button class="btn-buy-now" type="button">buy</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+        <% end %>
+        <%= render 'modal', meal: meal %>
+      <% end %>
+    </div>
+    <div
+      class="map-position" id="map"
+      style="width: 30%;
+      height: 84vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+  </div>
+</div>
+
 
 
