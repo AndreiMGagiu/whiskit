@@ -9,7 +9,7 @@
       <h3 style="padding-bottom: 30px; "> <%= @order.meal.pick_up_location %></h3>
 
       <%= form_tag order_payments_path(@order) do %>
-      <hr style="width: 400px;">
+
         <article>
           <label class="amount" style="padding-top: 30px;">
             <span><h3>Amount to pay:      <%= humanized_money_with_symbol(@order.amount)%></h3></span>
