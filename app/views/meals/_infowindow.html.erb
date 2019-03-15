@@ -2,7 +2,7 @@
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
   <% user.meals.each do |meal| %>
     <p><%= meal.name  %></p>
-    <p><%= meal.price %></p>
+    <p>£<%= meal.price %></p>
     <a href="#open-modal_<%= meal.id %>">
       <button class="btn-buy-now" type="button" style="margin-top: 20px;">buy</button>
     </a>
