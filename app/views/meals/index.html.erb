@@ -18,7 +18,7 @@
           <i class="fa fa-search"></i>
         </button> -->
         <!-- Search bar -->
-        <input type="text" name="query" id="query" value="" placeholder="Find food near you?" class="index-search ap-input" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="both" aria-expanded="false" aria-owns="algolia-places-listbox-0" dir="auto" style="position: relative; vertical-align: top;">
+          <input type="text" name="query" id="query" value="" placeholder="Find food near you?" class="index-search ap-input" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="both" aria-expanded="false" aria-owns="algolia-places-listbox-0" dir="auto" style="position: relative; vertical-align: top;">
         <% end %>
         <!-- Search bar -->
       </div>
@@ -33,14 +33,12 @@
     <%= form_tag meals_path, method: :get do%>
       <div style="display: flex; flex-direction: column; padding: 16px;">
         <% @diets.each do |dietary_requirement| %>
-            <div class="category-choice">
-            <input type="checkbox" class="hidden" value="<%= dietary_requirement.id %>" name="post[dietary_requirement_ids][]" id="post_dietary_requirement_ids_<%= dietary_requirement.id %>">
-            <label for="post_dietary_requirement_ids_<%= dietary_requirement.id %>">
-              <%= dietary_requirement.categories %>
-              <!-- <i class="fa fa-check"></i> -->
-            </label>
-          </div>
-        <% end %>
+                  <div style="padding-bottom: 16px;">
+                    <%= check_box_tag 'dietary_requirement_ids[]', dietary_requirement.id -%>
+
+                    <%=  dietary_requirement.categories %>
+                </div>
+              <% end %>
         <%= submit_tag "Search", class: "btn-all"%>
       </div>
     <% end %>
